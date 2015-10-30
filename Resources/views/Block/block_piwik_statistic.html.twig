@@ -1,0 +1,36 @@
+{% extends sonata_block.templates.block_base %}
+
+{% block block %}
+    <div class="panel panel-default panel-piwik-statistic">
+        {% if settings.title is not empty %}
+            <div class="panel-heading">
+                <h4 class="panel-title"><i class="fa fa fa-bar-chart-o"></i> {{ settings.title }}</h4>
+            </div>
+        {% endif %}
+
+        <div class="panel-body">
+            {% if data is empty %}
+                <p>{{ 'no_statistic_found'|trans({}, 'Core23PiwikBundle') }}</p>
+            {% else %}
+                <div data-piwik>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th data-format="%b&nbsp;%#d">{{ 'statistic_table_date'|trans({}, 'Core23PiwikBundle') }}</th>
+                            <th>{{ 'statistic_table_value'|trans({}, 'Core23PiwikBundle') }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for key, value in data %}
+                            <tr>
+                                <td>{{ key|format_date }}</td>
+                                <td>{{ value }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

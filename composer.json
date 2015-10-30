@@ -1,0 +1,40 @@
+{
+  "name": "core23/piwik-bundle",
+  "type": "symfony-bundle",
+  "description": "This bundle provides a block service for using piwik inside the sonata-project.",
+  "keywords": [
+    "symfony",
+    "piwik",
+    "statistic",
+    "sonata",
+    "block",
+    "widget",
+    "bundle"
+  ],
+  "homepage": "https://core23.de",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Gripp",
+      "email": "mail@core23.de"
+    }
+  ],
+  "require": {
+    "symfony/symfony": "~2.7",
+    "guzzle/guzzle": "~3.0",
+    "sonata-project/block-bundle": "~2.3"
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "~2.7|~3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core23\\PiwikBundle\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
