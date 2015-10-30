@@ -39,12 +39,10 @@ class PiwikStatisticBlockService extends BaseBlockService
     /**
      * @param string             $name
      * @param EngineInterface    $templating
-     * @param ContainerInterface $container
      * @param LoggerInterface    $logger
      */
-    public function __construct($name, EngineInterface $templating,  ContainerInterface $container, LoggerInterface $logger)
+    public function __construct($name, EngineInterface $templating, LoggerInterface $logger)
     {
-        $this->container = $container;
         $this->logger    = $logger;
 
         parent::__construct($name, $templating);
