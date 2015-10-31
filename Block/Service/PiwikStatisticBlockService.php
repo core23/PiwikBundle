@@ -20,26 +20,20 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PiwikStatisticBlockService extends BaseBlockService
 {
     /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    /**
      * @var LoggerInterface
      */
     protected $logger;
 
     /**
-     * @param string             $name
-     * @param EngineInterface    $templating
-     * @param LoggerInterface    $logger
+     * @param string          $name
+     * @param EngineInterface $templating
+     * @param LoggerInterface $logger
      */
     public function __construct($name, EngineInterface $templating, LoggerInterface $logger)
     {
