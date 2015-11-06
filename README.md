@@ -4,6 +4,7 @@ What is PiwikBundle?
 [![Build Status](http://img.shields.io/travis/core23/PiwikBundle.svg)](http://travis-ci.org/core23/PiwikBundle)
 [![Latest Stable Version](https://poser.pugx.org/core23/piwik-bundle/v/stable.png)](https://packagist.org/packages/core23/piwik-bundle)
 [![License](http://img.shields.io/packagist/l/core23/piwik-bundle.svg)](https://packagist.org/packages/core23/piwik-bundle)
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=core23&url=https%3A%2F%2Fgithub.com%2Fcore23%2FPiwikBundle&title=PiwikBundle&tags=github&category=software)
 
 This bundle provides a wrapper for using the [piwik] statistic inside the symfony sonata-project.
 
