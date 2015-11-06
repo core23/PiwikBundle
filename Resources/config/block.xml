@@ -12,6 +12,13 @@
 			<argument type="service" id="templating" />
 			<argument type="service" id="logger" />
 		</service>
+		
+		<service id="core23.piwik.block.tracker" class="Core23\PiwikBundle\Block\Service\PiwikTrackerBlockService">
+			<tag name="sonata.block" />
+
+			<argument>core23.piwik.block.tracker</argument>
+			<argument type="service" id="templating" />
+		</service>
 	</services>
 
 </container>

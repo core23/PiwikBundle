@@ -5,6 +5,9 @@ form.label_site: Site Id
 form.label_method: Ansicht
 form.label_period: Zeitraum
 form.label_date: Datum
+form.label_domaintitle: Domain Titel vorrausstellen
+form.label_donottrack: Clientseitiges Do Not Track
+form.label_nocookies: Alle Tracking Cookies deaktivieren
 form.choice_visitors: Besucher
 form.choice_unique_visitors: Einzigartige Besucher
 form.choice_hits: Aufrufe
