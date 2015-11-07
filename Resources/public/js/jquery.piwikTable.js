@@ -19,12 +19,12 @@
             });
 
             $('tbody tr', table).each(function () {
-                var cells = $(this).children();
-                cells.each(function (index) {
-                    if (index > 0)
+                $(this).children().each(function (index) {
+                    if (index > 0) {
                         data[index - 1].push(parseInt($(this).text()));
-                    else
+                    } else {
                         labels.push($(this).text());
+                    }
                 });
             });
 
