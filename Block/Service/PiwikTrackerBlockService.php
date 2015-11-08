@@ -15,6 +15,7 @@ use Core23\CoreBundle\Block\Service\BaseBlockService;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Model\Metadata;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -74,5 +75,13 @@ class PiwikTrackerBlockService extends BaseBlockService
         );
 
         $resolver->setRequired(array('site', 'host'));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockMetadata($code = null)
+    {
+        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array('class' => 'fa fa-code'));
     }
 }
