@@ -51,10 +51,10 @@ class PiwikStatisticBlockService extends BaseBlockService
         return $this->renderResponse(
             $blockContext->getTemplate(),
             array(
-                'context'    => $blockContext,
-                'settings'   => $blockContext->getSettings(),
-                'block'      => $blockContext->getBlock(),
-                'data'       => $this->getData($blockContext->getSettings()),
+                'context'  => $blockContext,
+                'settings' => $blockContext->getSettings(),
+                'block'    => $blockContext->getBlock(),
+                'data'     => $this->getData($blockContext->getSettings()),
             ),
             $response
         );
@@ -69,18 +69,18 @@ class PiwikStatisticBlockService extends BaseBlockService
             'settings',
             'sonata_type_immutable_array',
             array(
-                'keys'               => array(
+                'keys' => array(
                     array('title', 'text', array('required' => false, 'label' => 'form.label_title')),
-                    array('host', 'text', array('required'  => false, 'label' => 'form.label_host')),
+                    array('host', 'text', array('required' => false, 'label' => 'form.label_host')),
                     array('token', 'text', array('required' => false, 'label' => 'form.label_token')),
-                    array('site', 'number', array('label'   => 'form.label_site')),
+                    array('site', 'number', array('label' => 'form.label_site')),
                     array('method', 'choice', array(
                         'choices' => array(
                             'VisitsSummary.getVisits'         => 'form.choice_visitors',
                             'VisitsSummary.getUniqueVisitors' => 'form.choice_unique_visitors',
                             'VisitsSummary.getActions '       => 'form.choice_hits',
                         ),
-                        'label'   => 'form.label_method',
+                        'label' => 'form.label_method',
                     )),
                     array('period', 'choice', array(
                         'choices' => array(
@@ -89,7 +89,7 @@ class PiwikStatisticBlockService extends BaseBlockService
                             'month' => 'form.choice_month',
                             'year'  => 'form.choice_year',
                         ),
-                        'label'   => 'form.label_period',
+                        'label' => 'form.label_period',
                     )),
                     array('date', 'choice', array(
                         'choices' => array(
@@ -101,7 +101,7 @@ class PiwikStatisticBlockService extends BaseBlockService
                             'last180' => 'form.choice_6_months',
                             'last360' => 'form.choice_1_year',
                         ),
-                        'label'   => 'form.label_date',
+                        'label' => 'form.label_date',
                     )),
                 ),
                 'translation_domain' => 'Core23PiwikBundle',

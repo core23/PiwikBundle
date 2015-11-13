@@ -29,9 +29,9 @@ class PiwikTrackerBlockService extends BaseBlockService
         return $this->renderResponse(
             $blockContext->getTemplate(),
             array(
-                'context'    => $blockContext,
-                'settings'   => $blockContext->getSettings(),
-                'block'      => $blockContext->getBlock(),
+                'context'  => $blockContext,
+                'settings' => $blockContext->getSettings(),
+                'block'    => $blockContext->getBlock(),
             ),
             $response
         );
@@ -46,12 +46,12 @@ class PiwikTrackerBlockService extends BaseBlockService
             'settings',
             'sonata_type_immutable_array',
             array(
-                'keys'               => array(
-                    array('host', 'text', array('required'           => false, 'label' => 'form.label_host')),
-                    array('site', 'number', array('label'            => 'form.label_site')),
-                    array('domaintitle', 'checkbox', array('label'   => 'form.label_domaintitle', 'required' => false)),
-                    array('nocookies', 'checkbox', array('label'     => 'form.label_nocookies', 'required' => false)),
-                    array('donottrack', 'checkbox', array('label'    => 'form.label_donottrack', 'required' => false)),
+                'keys' => array(
+                    array('host', 'text', array('required' => false, 'label' => 'form.label_host')),
+                    array('site', 'number', array('label' => 'form.label_site')),
+                    array('domaintitle', 'checkbox', array('label' => 'form.label_domaintitle', 'required' => false)),
+                    array('nocookies', 'checkbox', array('label' => 'form.label_nocookies', 'required' => false)),
+                    array('donottrack', 'checkbox', array('label' => 'form.label_donottrack', 'required' => false)),
                 ),
                 'translation_domain' => 'Core23PiwikBundle',
             )
