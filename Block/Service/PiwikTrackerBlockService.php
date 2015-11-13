@@ -42,20 +42,30 @@ class PiwikTrackerBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add(
-            'settings',
-            'sonata_type_immutable_array',
-            array(
-                'keys' => array(
-                    array('host', 'text', array('required' => false, 'label' => 'form.label_host')),
-                    array('site', 'number', array('label' => 'form.label_site')),
-                    array('domaintitle', 'checkbox', array('label' => 'form.label_domaintitle', 'required' => false)),
-                    array('nocookies', 'checkbox', array('label' => 'form.label_nocookies', 'required' => false)),
-                    array('donottrack', 'checkbox', array('label' => 'form.label_donottrack', 'required' => false)),
-                ),
-                'translation_domain' => 'Core23PiwikBundle',
-            )
-        );
+        $formMapper->add('settings', 'sonata_type_immutable_array',   array(
+            'keys' => array(
+                array('host', 'text', array(
+                    'required' => false,
+                    'label'    => 'form.label_host',
+                )),
+                array('site', 'number', array(
+                    'label' => 'form.label_site',
+                )),
+                array('domaintitle', 'checkbox', array(
+                    'label'    => 'form.label_domaintitle',
+                    'required' => false,
+                )),
+                array('nocookies', 'checkbox', array(
+                    'label'    => 'form.label_nocookies',
+                    'required' => false,
+                )),
+                array('donottrack', 'checkbox', array(
+                    'label'    => 'form.label_donottrack',
+                    'required' => false,
+                )),
+            ),
+            'translation_domain' => 'Core23PiwikBundle',
+        ));
     }
 
     /**

@@ -65,48 +65,55 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add(
-            'settings',
-            'sonata_type_immutable_array',
-            array(
-                'keys' => array(
-                    array('title', 'text', array('required' => false, 'label' => 'form.label_title')),
-                    array('host', 'text', array('required' => false, 'label' => 'form.label_host')),
-                    array('token', 'text', array('required' => false, 'label' => 'form.label_token')),
-                    array('site', 'number', array('label' => 'form.label_site')),
-                    array('method', 'choice', array(
-                        'choices' => array(
-                            'VisitsSummary.getVisits'         => 'form.choice_visitors',
-                            'VisitsSummary.getUniqueVisitors' => 'form.choice_unique_visitors',
-                            'VisitsSummary.getActions '       => 'form.choice_hits',
-                        ),
-                        'label' => 'form.label_method',
-                    )),
-                    array('period', 'choice', array(
-                        'choices' => array(
-                            'day'   => 'form.choice_day',
-                            'week'  => 'form.choice_week',
-                            'month' => 'form.choice_month',
-                            'year'  => 'form.choice_year',
-                        ),
-                        'label' => 'form.label_period',
-                    )),
-                    array('date', 'choice', array(
-                        'choices' => array(
-                            'last1'   => 'form.choice_today',
-                            'last7'   => 'form.choice_1_week',
-                            'last14'  => 'form.choice_2_weeks',
-                            'last30'  => 'form.choice_1_month',
-                            'last90'  => 'form.choice_3_months',
-                            'last180' => 'form.choice_6_months',
-                            'last360' => 'form.choice_1_year',
-                        ),
-                        'label' => 'form.label_date',
-                    )),
-                ),
-                'translation_domain' => 'Core23PiwikBundle',
-            )
-        );
+        $formMapper->add('settings', 'sonata_type_immutable_array', array(
+            'keys' => array(
+                array('title', 'text', array(
+                    'required' => false,
+                    'label'    => 'form.label_title',
+                )),
+                array('host', 'text', array(
+                    'required' => false,
+                    'label'    => 'form.label_host',
+                )),
+                array('token', 'text', array(
+                    'required' => false,
+                    'label'    => 'form.label_token',
+                )),
+                array('site', 'number', array(
+                    'label' => 'form.label_site',
+                )),
+                array('method', 'choice', array(
+                    'choices' => array(
+                        'VisitsSummary.getVisits'         => 'form.choice_visitors',
+                        'VisitsSummary.getUniqueVisitors' => 'form.choice_unique_visitors',
+                        'VisitsSummary.getActions '       => 'form.choice_hits',
+                    ),
+                    'label' => 'form.label_method',
+                )),
+                array('period', 'choice', array(
+                    'choices' => array(
+                        'day'   => 'form.choice_day',
+                        'week'  => 'form.choice_week',
+                        'month' => 'form.choice_month',
+                        'year'  => 'form.choice_year',
+                    ),
+                    'label' => 'form.label_period',
+                )),
+                array('date', 'choice', array(
+                    'choices' => array(
+                        'last1'   => 'form.choice_today',
+                        'last7'   => 'form.choice_1_week',
+                        'last14'  => 'form.choice_2_weeks',
+                        'last30'  => 'form.choice_1_month',
+                        'last90'  => 'form.choice_3_months',
+                        'last180' => 'form.choice_6_months',
+                        'last360' => 'form.choice_1_year',
+                    ),
+                    'label' => 'form.label_date',
+                )),
+            ),
+            'translation_domain' => 'Core23PiwikBundle',
+        ));
     }
 
     /**
