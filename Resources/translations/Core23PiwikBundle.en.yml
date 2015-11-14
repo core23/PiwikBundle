@@ -25,5 +25,5 @@ form.choice_1_year: 1 Year
 no_statistic_found: Could not load Piwik statistik from server.
 statistic_table_date: Date
 statistic_table_value: Value
-core23.piwik.block.statistic: Piwik: Statistic
-core23.piwik.block.tracker: Piwik: Tracking Script
+core23.piwik.block.statistic: Piwik - Statistic
+core23.piwik.block.tracker: Piwik - Tracking Script

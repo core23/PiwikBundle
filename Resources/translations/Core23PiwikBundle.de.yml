@@ -25,5 +25,5 @@ form.choice_1_year: Ein Jahr
 no_statistic_found: Statistik konnte nicht vom Server abgerufen werden.
 statistic_table_date: Datum
 statistic_table_value: Wert
-core23.piwik.block.statistic: Piwik: Besucherstatistik
-core23.piwik.block.tracker: Piwik: Tracking Script
+core23.piwik.block.statistic: Piwik - Besucherstatistik
+core23.piwik.block.tracker: Piwik - Tracking Script
