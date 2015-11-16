@@ -36,14 +36,12 @@ class Core23PiwikExtension extends Extension
 
     public function configureClassesToCompile()
     {
-        $this->addClassesToCompile(
-            array(
-                'Core23\\PiwikBundle\\Block\\Service\\PiwikStatisticBlockService',
-                'Core23\\PiwikBundle\\Cliet\\Client',
-                'Core23\\PiwikBundle\\Connection\\ConnectionInterface',
-                'Core23\\PiwikBundle\\Connection\\PiwikConntection',
-                'Core23\\PiwikBundle\\Exception\\PiwikException',
-            )
-        );
+        $this->addClassesToCompile(array(
+            'Core23\\PiwikBundle\\Block\\Service\\PiwikStatisticBlockService',
+            'Core23\\PiwikBundle\\Cliet\\Client',
+            'Core23\\PiwikBundle\\Connection\\ConnectionInterface',
+            'Core23\\PiwikBundle\\Connection\\PiwikConntection',
+            'Core23\\PiwikBundle\\Exception\\PiwikException',
+        ));
     }
 }
