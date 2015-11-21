@@ -18,28 +18,29 @@ php composer.phar require core23/piwik-bundle
 
 ```php
 <?php
-// app/AppKernel.php
+    // app/AppKernel.php
 
-	public function registerBundles()
-	{
-		return array(
-			// ...
+    public function registerBundles()
+    {
+        return array(
+            // ...
 
-			new Core23\PiwikBundle\Core23PiwikBundle(),
+            new Core23\PiwikBundle\Core23PiwikBundle(),
 
-			// ...
-		);
-	}
+            // ...
+        );
+    }
 ```
 
 ### Usage
 
 ```twig
 {# template.twig #}
+
 {{ sonata_block_render({ 'type': 'core23.piwik.block.statistic' }, {
     'host': 'http://piwik.example.com',
     'site': 1,
-	'token': 'PIWIK_API_TOKEN'
+    'token': 'PIWIK_API_TOKEN'
 }) }}
 ```
 
