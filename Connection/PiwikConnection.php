@@ -14,7 +14,7 @@ namespace Core23\PiwikBundle\Connection;
 use Core23\PiwikBundle\Exception\PiwikException;
 use GuzzleHttp\Client;
 
-class PiwikConntection implements ConnectionInterface
+class PiwikConnection implements ConnectionInterface
 {
     /**
      * @var Client

@@ -23,7 +23,7 @@ class ClientFactory
      */
     public function createPiwikClient($host, $token)
     {
-        $connection = new PiwikConntection($host);
+        $connection = new PiwikConnection($host);
 
         return new Client($connection, $token);
     }
