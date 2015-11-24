@@ -194,6 +194,8 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function getBlockMetadata($code = null)
     {
-        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array('class' => 'fa fa-area-chart'));
+        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
+            'class' => 'fa fa-area-chart'
+        ));
     }
 }
