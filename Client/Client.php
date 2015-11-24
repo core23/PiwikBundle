@@ -74,9 +74,9 @@ class Client
             }
 
             return $object;
-        } else {
-            return $data;
         }
+
+        return $data;
     }
 
     /**
