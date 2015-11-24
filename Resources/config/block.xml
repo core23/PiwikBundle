@@ -10,6 +10,7 @@
 
             <argument>core23.piwik.block.statistic</argument>
             <argument type="service" id="templating" />
+            <argument type="service" id="core23.piwik.client.factory" />
             <argument type="service" id="logger" />
         </service>
 

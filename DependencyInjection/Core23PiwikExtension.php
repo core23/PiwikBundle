@@ -27,6 +27,8 @@ class Core23PiwikExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
+        $loader->load('services.xml');
+
         if (isset($bundles['SonataBlockBundle'])) {
             $loader->load('block.xml');
         }

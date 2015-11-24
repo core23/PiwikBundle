@@ -12,8 +12,7 @@
 namespace Core23\PiwikBundle\Block\Service;
 
 use Core23\CoreBundle\Block\Service\BaseBlockService;
-use Core23\PiwikBundle\Client\Client;
-use Core23\PiwikBundle\Connection\PiwikConntection;
+use Core23\PiwikBundle\Client\ClientFactory;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -32,14 +31,23 @@ class PiwikStatisticBlockService extends BaseBlockService
     protected $logger;
 
     /**
+     * @var ClientFactory
+     */
+    protected $factory;
+
+    /**
+     * PiwikStatisticBlockService constructor.
+     *
      * @param string          $name
      * @param EngineInterface $templating
+     * @param ClientFactory   $factory
      * @param LoggerInterface $logger
      */
-    public function __construct($name, EngineInterface $templating, LoggerInterface $logger)
+    public function __construct($name, EngineInterface $templating, ClientFactory $factory, LoggerInterface $logger)
     {
         parent::__construct($name, $templating);
 
+        $this->factory = $factory;
         $this->logger    = $logger;
     }
 
@@ -159,12 +167,8 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     protected function getData($settings = array())
     {
-        $host  = $settings['host'];
-        $token = $settings['token'];
-
         try {
-            $connection = new PiwikConntection($host);
-            $client     = new Client($connection, $token);
+            $client = $this->factory->createPiwikClient($settings['host'], $settings['token']);
 
             $response = $client->call($settings['method'], array(
                 'idSite' => $settings['site'],
@@ -174,7 +178,7 @@ class PiwikStatisticBlockService extends BaseBlockService
 
             return $response;
         } catch (PiwikException $ce) {
-            $this->logger->warning('Error retrieving Piwik url: '.$host);
+            $this->logger->warning('Error retrieving Piwik url: '.$settings['host']);
         }
 
         return;
@@ -186,7 +190,7 @@ class PiwikStatisticBlockService extends BaseBlockService
     public function getBlockMetadata($code = null)
     {
         return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
-            'class' => 'fa fa-area-chart'
+            'class' => 'fa fa-area-chart',
         ));
     }
 }
