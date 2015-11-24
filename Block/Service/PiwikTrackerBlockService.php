@@ -26,15 +26,11 @@ class PiwikTrackerBlockService extends BaseBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        return $this->renderResponse(
-            $blockContext->getTemplate(),
-            array(
-                'context'  => $blockContext,
-                'settings' => $blockContext->getSettings(),
-                'block'    => $blockContext->getBlock(),
-            ),
-            $response
-        );
+        return $this->renderResponse($blockContext->getTemplate(), array(
+            'context'  => $blockContext,
+            'settings' => $blockContext->getSettings(),
+            'block'    => $blockContext->getBlock(),
+        ), $response);
     }
 
     /**
@@ -73,16 +69,14 @@ class PiwikTrackerBlockService extends BaseBlockService
      */
     public function configureSettings(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(
-            array(
-                'host'        => null,
-                'site'        => false,
-                'domaintitle' => false,
-                'donottrack'  => false,
-                'nocookies'   => false,
-                'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
-            )
-        );
+        $resolver->setDefaults(array(
+            'host'        => null,
+            'site'        => false,
+            'domaintitle' => false,
+            'donottrack'  => false,
+            'nocookies'   => false,
+            'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
+        ));
 
         $resolver->setRequired(array('site', 'host'));
     }
@@ -93,7 +87,7 @@ class PiwikTrackerBlockService extends BaseBlockService
     public function getBlockMetadata($code = null)
     {
         return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
-            'class' => 'fa fa-code'
+            'class' => 'fa fa-code',
         ));
     }
 }

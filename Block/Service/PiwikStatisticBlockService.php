@@ -38,9 +38,9 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function __construct($name, EngineInterface $templating, LoggerInterface $logger)
     {
-        $this->logger    = $logger;
-
         parent::__construct($name, $templating);
+
+        $this->logger    = $logger;
     }
 
     /**
@@ -48,16 +48,12 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        return $this->renderResponse(
-            $blockContext->getTemplate(),
-            array(
-                'context'  => $blockContext,
-                'settings' => $blockContext->getSettings(),
-                'block'    => $blockContext->getBlock(),
-                'data'     => $this->getData($blockContext->getSettings()),
-            ),
-            $response
-        );
+        return $this->renderResponse($blockContext->getTemplate(), array(
+            'context'  => $blockContext,
+            'settings' => $blockContext->getSettings(),
+            'block'    => $blockContext->getBlock(),
+            'data'     => $this->getData($blockContext->getSettings()),
+        ), $response);
     }
 
     /**
@@ -121,18 +117,16 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function configureSettings(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(
-            array(
-                'title'    => 'Piwik Statistic',
-                'site'     => false,
-                'method'   => 'VisitsSummary.getVisits',
-                'host'     => null,
-                'token'    => null,
-                'period'   => 'day',
-                'date'     => 'last30',
-                'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
-            )
-        );
+        $resolver->setDefaults(array(
+            'title'    => 'Piwik Statistic',
+            'site'     => false,
+            'method'   => 'VisitsSummary.getVisits',
+            'host'     => null,
+            'token'    => null,
+            'period'   => 'day',
+            'date'     => 'last30',
+            'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
+        ));
 
         $resolver->setRequired(array('site', 'host', 'token'));
     }
@@ -172,14 +166,11 @@ class PiwikStatisticBlockService extends BaseBlockService
             $connection = new PiwikConntection($host);
             $client     = new Client($connection, $token);
 
-            $response = $client->call(
-                $settings['method'],
-                array(
-                    'idSite' => $settings['site'],
-                    'period' => $settings['period'],
-                    'date'   => $settings['date'],
-                )
-            );
+            $response = $client->call($settings['method'], array(
+                'idSite' => $settings['site'],
+                'period' => $settings['period'],
+                'date'   => $settings['date'],
+            ));
 
             return $response;
         } catch (PiwikException $ce) {
