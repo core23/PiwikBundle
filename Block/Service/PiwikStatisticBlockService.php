@@ -11,11 +11,11 @@
 
 namespace Core23\PiwikBundle\Block\Service;
 
-use Core23\CoreBundle\Block\Service\BaseBlockService;
 use Core23\PiwikBundle\Client\ClientFactory;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Sonata\CoreBundle\Model\Metadata;
