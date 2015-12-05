@@ -11,8 +11,8 @@
 
 namespace Core23\PiwikBundle\Block\Service;
 
-use Core23\CoreBundle\Block\Service\BaseBlockService;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Sonata\CoreBundle\Model\Metadata;
