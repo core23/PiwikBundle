@@ -40,9 +40,9 @@ class Core23PiwikExtension extends Extension
     {
         $this->addClassesToCompile(array(
             'Core23\\PiwikBundle\\Block\\Service\\PiwikStatisticBlockService',
-            'Core23\\PiwikBundle\\Cliet\\Client',
+            'Core23\\PiwikBundle\\Client\\Client',
             'Core23\\PiwikBundle\\Connection\\ConnectionInterface',
-            'Core23\\PiwikBundle\\Connection\\PiwikConntection',
+            'Core23\\PiwikBundle\\Connection\\PiwikConnection',
             'Core23\\PiwikBundle\\Exception\\PiwikException',
         ));
     }
