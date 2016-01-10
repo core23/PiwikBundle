@@ -1,6 +1,6 @@
 /*!
- * ni-ju-san CMS v1.0.0 (http://ni-ju-san.de)
- * Copyright 2014-2015 Core23 - webdesign & more
+ * ni-ju-san CMS (http://ni-ju-san.de)
+ * Copyright 2014-2016 core23 - webdesign & more
  */
 (function ($) {
     $.piwikTable = {version: '1.00'};
