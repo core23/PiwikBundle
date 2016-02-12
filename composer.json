@@ -22,11 +22,13 @@
   "require": {
     "symfony/symfony": "~2.7|~3.0",
     "guzzlehttp/guzzle": "~5.0|~6.0",
-    "sonata-project/block-bundle": "~2.4@dev"
+    "sonata-project/block-bundle": "~2.4"
   },
   "require-dev": {
     "symfony/phpunit-bridge": "~2.7|~3.0"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Core23\\PiwikBundle\\": ""
