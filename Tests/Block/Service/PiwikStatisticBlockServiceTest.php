@@ -48,7 +48,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTest
 
     public function testExecute()
     {
-        $client = $this->getMockBuilder('Core23\PiwikBundle\Client\Client')->disableOriginalConstructor()->getMock();
+        $client = $this->createMock('Core23\PiwikBundle\Client\Client');
         $client->expects($this->once())->method('call')->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
             'idSite' => 'foo',
             'period' => 'day',
@@ -83,7 +83,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTest
 
     public function testExecuteOffline()
     {
-        $client = $this->getMockBuilder('Core23\PiwikBundle\Client\Client')->disableOriginalConstructor()->getMock();
+        $client = $this->createMock('Core23\PiwikBundle\Client\Client');
         $client->expects($this->once())->method('call')->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
             'idSite' => 'foo',
             'period' => 'day',
