@@ -41,8 +41,8 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTest
     {
         parent::setUp();
 
-        $this->logger  = $this->getMock('Psr\Log\LoggerInterface');
-        $this->factory  = $this->getMock('Core23\PiwikBundle\Client\ClientFactory');
+        $this->logger  = $this->createMock('Psr\Log\LoggerInterface');
+        $this->factory  = $this->createMock('Core23\PiwikBundle\Client\ClientFactory');
         $this->templating = new FakeTemplating();
     }
 
