@@ -18,24 +18,18 @@ use Psr\Log\LoggerInterface;
 use Sonata\BlockBundle\Block\BlockContext;
 use Sonata\BlockBundle\Model\Block;
 use Sonata\BlockBundle\Tests\Block\AbstractBlockServiceTest;
-use Sonata\BlockBundle\Tests\Block\Service\FakeTemplating;
 
 class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTest
 {
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|LoggerInterface
      */
-    protected $logger;
+    private $logger;
 
     /**
      * @var \PHPUnit_Framework_MockObject_MockObject|ClientFactory
      */
-    protected $factory;
-
-    /**
-     * @var FakeTemplating
-     */
-    protected $templating;
+    private $factory;
 
     protected function setUp()
     {
@@ -43,7 +37,6 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTest
 
         $this->logger  = $this->createMock('Psr\Log\LoggerInterface');
         $this->factory  = $this->createMock('Core23\PiwikBundle\Client\ClientFactory');
-        $this->templating = new FakeTemplating();
     }
 
     public function testExecute()
