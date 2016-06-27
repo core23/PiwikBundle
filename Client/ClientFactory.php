@@ -12,9 +12,33 @@
 namespace Core23\PiwikBundle\Client;
 
 use Core23\PiwikBundle\Connection\PiwikConnection;
+use Http\Client\HttpClient;
+use Http\Message\MessageFactory;
 
 class ClientFactory
 {
+    /**
+     * @var HttpClient
+     */
+    private $client;
+
+    /**
+     * @var MessageFactory
+     */
+    private $messageFactory;
+
+    /**
+     * Initialize client.
+     *
+     * @param HttpClient     $client
+     * @param MessageFactory $messageFactory
+     */
+    public function __construct(HttpClient $client = null, MessageFactory $messageFactory)
+    {
+        $this->client = $client;
+        $this->messageFactory = $messageFactory;
+    }
+
     /**
      * @param string $host
      * @param string $token
@@ -23,7 +47,7 @@ class ClientFactory
      */
     public function createPiwikClient($host, $token)
     {
-        $connection = new PiwikConnection($host);
+        $connection = new PiwikConnection($this->client, $this->messageFactory, $host);
 
         return new Client($connection, $token);
     }

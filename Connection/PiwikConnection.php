@@ -12,14 +12,20 @@
 namespace Core23\PiwikBundle\Connection;
 
 use Core23\PiwikBundle\Exception\PiwikException;
-use GuzzleHttp\Client;
+use Http\Client\HttpClient;
+use Http\Message\MessageFactory;
 
 class PiwikConnection implements ConnectionInterface
 {
     /**
-     * @var Client
+     * @var HttpClient
      */
     private $client;
+
+    /**
+     * @var MessageFactory
+     */
+    private $messageFactory;
 
     /**
      * @var string
@@ -29,17 +35,15 @@ class PiwikConnection implements ConnectionInterface
     /**
      * Initialize client.
      *
-     * @param string $apiUrl base API URL
-     * @param Client $client guzzle client
+     * @param HttpClient     $client
+     * @param MessageFactory $messageFactory
+     * @param string         $apiUrl         base API URL
      */
-    public function __construct($apiUrl, Client $client = null)
+    public function __construct(HttpClient $client, MessageFactory $messageFactory, $apiUrl)
     {
-        if (null === $client) {
-            $this->client = new Client(array('base_uri' => $apiUrl));
-        } else {
-            $this->client = $client;
-        }
         $this->apiUrl = $apiUrl;
+        $this->client = $client;
+        $this->messageFactory = $messageFactory;
     }
 
     /**
@@ -48,11 +52,12 @@ class PiwikConnection implements ConnectionInterface
     public function send(array $params = array())
     {
         $params['module'] = 'API';
-        $url              = $this->apiUrl.'?'.$this->getUrlParamString($params);
 
-        $response = $this->client->get($url);
+        $url = $this->apiUrl.'?'.$this->getUrlParamString($params);
+        $request = $this->messageFactory->createRequest('GET', $url);
+        $response = $this->client->sendRequest($request);
 
-        if (!$response->getStatusCode() === 200) {
+        if ($response->getStatusCode() !== 200) {
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 

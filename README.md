@@ -16,6 +16,7 @@ This bundle provides a wrapper for using the [piwik] statistic inside the symfon
 
 ```
 php composer.phar require core23/piwik-bundle
+php composer.phar require php-http/guzzle6-adapter # if you want to use Guzzle
 ```
 
 ### Enabling the bundle
@@ -27,12 +28,26 @@ php composer.phar require core23/piwik-bundle
     {
         return array(
             // ...
-
+            
+            new Http\HttplugBundle\HttplugBundle(),
             new Core23\PiwikBundle\Core23PiwikBundle(),
 
             // ...
         );
     }
+```
+
+Define a [HTTPlug] client in your configuration.
+
+```yml
+    config.yml
+    
+    httplug:
+        classes:
+            client: Http\Adapter\Guzzle6\Client
+            message_factory: Http\Message\MessageFactory\GuzzleMessageFactory
+            uri_factory: Http\Message\UriFactory\GuzzleUriFactory
+            stream_factory: Http\Message\StreamFactory\GuzzleStreamFactory
 ```
 
 ### Usage
@@ -49,4 +64,5 @@ php composer.phar require core23/piwik-bundle
 
 This bundle is available under the [MIT license](LICENSE.md).
 
+[HTTPlug]: http://docs.php-http.org/en/latest/index.html
 [piwik]: https://piwik.org

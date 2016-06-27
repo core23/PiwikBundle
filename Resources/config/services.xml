@@ -9,6 +9,8 @@
 
     <services>
         <service id="core23.piwik.client.factory" class="%core23.piwik.client.factory.class%">
+            <argument type="service" id="core23.piwik.http.client" />
+            <argument type="service" id="core23.piwik.http.message_factory" />
         </service>
     </services>
 

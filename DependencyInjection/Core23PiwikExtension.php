@@ -23,6 +23,9 @@ class Core23PiwikExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
         $bundles = $container->getParameter('kernel.bundles');
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -33,7 +36,19 @@ class Core23PiwikExtension extends Extension
             $loader->load('block.xml');
         }
 
+        $this->configureHttpClient($container, $config);
+
         $this->configureClassesToCompile();
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param array            $config
+     */
+    private function configureHttpClient(ContainerBuilder $container, array $config)
+    {
+        $container->setAlias('core23.piwik.http.client', $config['http']['client']);
+        $container->setAlias('core23.piwik.http.message_factory', $config['http']['message_factory']);
     }
 
     private function configureClassesToCompile()
