@@ -14,9 +14,9 @@ namespace Core23\PiwikBundle\Tests\Block\Service;
 use Core23\PiwikBundle\Block\Service\PiwikTrackerBlockService;
 use Sonata\BlockBundle\Block\BlockContext;
 use Sonata\BlockBundle\Model\Block;
-use Sonata\BlockBundle\Tests\Block\AbstractBlockServiceTest;
+use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
-class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTest
+class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
 {
     public function testExecute()
     {
