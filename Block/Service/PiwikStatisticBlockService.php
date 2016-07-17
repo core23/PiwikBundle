@@ -161,6 +161,16 @@ class PiwikStatisticBlockService extends BaseBlockService
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getBlockMetadata($code = null)
+    {
+        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
+            'class' => 'fa fa-area-chart',
+        ));
+    }
+
+    /**
      * @param array $settings
      *
      * @return mixed|null
@@ -182,15 +192,5 @@ class PiwikStatisticBlockService extends BaseBlockService
         }
 
         return;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockMetadata($code = null)
-    {
-        return new Metadata($this->getName(), (!is_null($code) ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
-            'class' => 'fa fa-area-chart',
-        ));
     }
 }

@@ -38,7 +38,7 @@ class PiwikTrackerBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add('settings', 'sonata_type_immutable_array',   array(
+        $formMapper->add('settings', 'sonata_type_immutable_array', array(
             'keys' => array(
                 array('host', 'text', array(
                     'required' => false,
