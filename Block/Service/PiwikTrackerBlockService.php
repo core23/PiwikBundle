@@ -15,7 +15,11 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Form\Type\ImmutableArrayType;
 use Sonata\CoreBundle\Model\Metadata;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -38,24 +42,24 @@ class PiwikTrackerBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add('settings', 'sonata_type_immutable_array', array(
+        $formMapper->add('settings', ImmutableArrayType::class, array(
             'keys' => array(
-                array('host', 'text', array(
+                array('host', TextType::class, array(
                     'required' => false,
                     'label'    => 'form.label_host',
                 )),
-                array('site', 'number', array(
+                array('site', NumberType::class, array(
                     'label' => 'form.label_site',
                 )),
-                array('domaintitle', 'checkbox', array(
+                array('domaintitle', CheckboxType::class, array(
                     'label'    => 'form.label_domaintitle',
                     'required' => false,
                 )),
-                array('nocookies', 'checkbox', array(
+                array('nocookies', CheckboxType::class, array(
                     'label'    => 'form.label_nocookies',
                     'required' => false,
                 )),
-                array('donottrack', 'checkbox', array(
+                array('donottrack', CheckboxType::class, array(
                     'label'    => 'form.label_donottrack',
                     'required' => false,
                 )),

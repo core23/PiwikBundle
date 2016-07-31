@@ -18,8 +18,12 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\CoreBundle\Form\Type\ImmutableArrayType;
 use Sonata\CoreBundle\Model\Metadata;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -48,7 +52,7 @@ class PiwikStatisticBlockService extends BaseBlockService
         parent::__construct($name, $templating);
 
         $this->factory = $factory;
-        $this->logger    = $logger;
+        $this->logger = $logger;
     }
 
     /**
@@ -69,51 +73,54 @@ class PiwikStatisticBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
     {
-        $formMapper->add('settings', 'sonata_type_immutable_array', array(
+        $formMapper->add('settings', ImmutableArrayType::class, array(
             'keys' => array(
-                array('title', 'text', array(
+                array('title', TextType::class, array(
                     'required' => false,
                     'label'    => 'form.label_title',
                 )),
-                array('host', 'text', array(
+                array('host', TextType::class, array(
                     'required' => false,
                     'label'    => 'form.label_host',
                 )),
-                array('token', 'text', array(
+                array('token', TextType::class, array(
                     'required' => false,
                     'label'    => 'form.label_token',
                 )),
-                array('site', 'number', array(
+                array('site', NumberType::class, array(
                     'label' => 'form.label_site',
                 )),
-                array('method', 'choice', array(
+                array('method', ChoiceType::class, array(
                     'choices' => array(
-                        'VisitsSummary.getVisits'         => 'form.choice_visitors',
-                        'VisitsSummary.getUniqueVisitors' => 'form.choice_unique_visitors',
-                        'VisitsSummary.getActions '       => 'form.choice_hits',
+                        'form.choice_visitors'        => 'VisitsSummary.getVisits',
+                        'form.choice_unique_visitors' => 'VisitsSummary.getUniqueVisitors',
+                        'form.choice_hits'            => 'VisitsSummary.getActions ',
                     ),
-                    'label' => 'form.label_method',
+                    'choices_as_values' => true,
+                    'label'             => 'form.label_method',
                 )),
-                array('period', 'choice', array(
+                array('period', ChoiceType::class, array(
                     'choices' => array(
-                        'day'   => 'form.choice_day',
-                        'week'  => 'form.choice_week',
-                        'month' => 'form.choice_month',
-                        'year'  => 'form.choice_year',
+                        'form.choice_day'   => 'day',
+                        'form.choice_week'  => 'week',
+                        'form.choice_month' => 'month',
+                        'form.choice_year'  => 'year',
                     ),
-                    'label' => 'form.label_period',
+                    'choices_as_values' => true,
+                    'label'             => 'form.label_period',
                 )),
-                array('date', 'choice', array(
+                array('date', ChoiceType::class, array(
                     'choices' => array(
-                        'last1'   => 'form.choice_today',
-                        'last7'   => 'form.choice_1_week',
-                        'last14'  => 'form.choice_2_weeks',
-                        'last30'  => 'form.choice_1_month',
-                        'last90'  => 'form.choice_3_months',
-                        'last180' => 'form.choice_6_months',
-                        'last360' => 'form.choice_1_year',
+                        'form.choice_today'    => 'last1',
+                        'form.choice_1_week'   => 'last7',
+                        'form.choice_2_weeks'  => 'last14',
+                        'form.choice_1_month'  => 'last30',
+                        'form.choice_3_months' => 'last90',
+                        'form.choice_6_months' => 'last180',
+                        'form.choice_1_year'   => 'last360',
                     ),
-                    'label' => 'form.label_date',
+                    'choices_as_values' => true,
+                    'label'             => 'form.label_date',
                 )),
             ),
             'translation_domain' => 'Core23PiwikBundle',
