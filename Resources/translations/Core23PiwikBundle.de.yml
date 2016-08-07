@@ -1,29 +1,29 @@
-form.label_title: Titel
-form.label_host: Piwik Host
-form.label_token: Piwik Token
-form.label_site: Site Id
-form.label_method: Ansicht
-form.label_period: Zeitraum
-form.label_date: Datum
-form.label_domaintitle: Domain Titel vorrausstellen
-form.label_donottrack: Clientseitiges Do Not Track
-form.label_nocookies: Alle Tracking Cookies deaktivieren
-form.choice_visitors: Besucher
-form.choice_unique_visitors: Einzigartige Besucher
-form.choice_hits: Aufrufe
+core23.piwik.block.statistic: 'Piwik - Besucherstatistik'
+core23.piwik.block.tracker: 'Piwik - Tracking Script'
+form.choice_1_month: 'Ein Monat'
+form.choice_1_week: 'Eine Woche'
+form.choice_1_year: 'Ein Jahr'
+form.choice_2_weeks: 'Zwei Woche'
+form.choice_3_months: 'Drei Monate'
+form.choice_6_months: 'Sechs Monate'
 form.choice_day: Tag
-form.choice_week: Woche
+form.choice_hits: Aufrufe
 form.choice_month: Monat
-form.choice_year: Jahr
 form.choice_today: Heute
-form.choice_1_week: Eine Woche
-form.choice_2_weeks: Zwei Woche
-form.choice_1_month: Ein Monat
-form.choice_3_months: Drei Monate
-form.choice_6_months: Sechs Monate
-form.choice_1_year: Ein Jahr
-no_statistic_found: Statistik konnte nicht vom Server abgerufen werden.
+form.choice_unique_visitors: 'Einzigartige Besucher'
+form.choice_visitors: Besucher
+form.choice_week: Woche
+form.choice_year: Jahr
+form.label_date: Datum
+form.label_domaintitle: 'Domain Titel vorrausstellen'
+form.label_donottrack: 'Clientseitiges Do Not Track'
+form.label_host: 'Piwik Host'
+form.label_method: Ansicht
+form.label_nocookies: 'Alle Tracking Cookies deaktivieren'
+form.label_period: Zeitraum
+form.label_site: 'Site Id'
+form.label_title: Titel
+form.label_token: 'Piwik Token'
+no_statistic_found: 'Statistik konnte nicht vom Server abgerufen werden.'
 statistic_table_date: Datum
 statistic_table_value: Wert
-core23.piwik.block.statistic: Piwik - Besucherstatistik
-core23.piwik.block.tracker: Piwik - Tracking Script

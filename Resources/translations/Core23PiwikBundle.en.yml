@@ -1,29 +1,29 @@
-form.label_title: Title
-form.label_host: Piwik host
-form.label_token: Piwik token
-form.label_site: Site id
-form.label_method: View
-form.label_period: Period
-form.label_date: Date
-form.label_domaintitle: Prepend the site domain title
-form.label_donottrack: Enable client side DoNotTrack detection
-form.label_nocookies: Disable all tracking cookies
-form.choice_visitors: Visitors
-form.choice_unique_visitors: Unique visitors
-form.choice_hits: Hits
+core23.piwik.block.statistic: 'Piwik - Statistic'
+core23.piwik.block.tracker: 'Piwik - Tracking Script'
+form.choice_1_month: '1 Month'
+form.choice_1_week: '1 Week'
+form.choice_1_year: '1 Year'
+form.choice_2_weeks: '2 Weeks'
+form.choice_3_months: '3 Months'
+form.choice_6_months: '6 Months'
 form.choice_day: Day
-form.choice_week: Week
+form.choice_hits: Hits
 form.choice_month: Month
-form.choice_year: Year
 form.choice_today: Today
-form.choice_1_week: 1 Week
-form.choice_2_weeks: 2 Weeks
-form.choice_1_month: 1 Month
-form.choice_3_months: 3 Months
-form.choice_6_months: 6 Months
-form.choice_1_year: 1 Year
-no_statistic_found: Could not load Piwik statistik from server.
+form.choice_unique_visitors: 'Unique visitors'
+form.choice_visitors: Visitors
+form.choice_week: Week
+form.choice_year: Year
+form.label_date: Date
+form.label_domaintitle: 'Prepend the site domain title'
+form.label_donottrack: 'Enable client side DoNotTrack detection'
+form.label_host: 'Piwik host'
+form.label_method: View
+form.label_nocookies: 'Disable all tracking cookies'
+form.label_period: Period
+form.label_site: 'Site id'
+form.label_title: Title
+form.label_token: 'Piwik token'
+no_statistic_found: 'Could not load Piwik statistik from server.'
 statistic_table_date: Date
 statistic_table_value: Value
-core23.piwik.block.statistic: Piwik - Statistic
-core23.piwik.block.tracker: Piwik - Tracking Script
