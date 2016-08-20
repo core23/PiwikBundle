@@ -41,8 +41,8 @@ class PiwikConnection implements ConnectionInterface
      */
     public function __construct(HttpClient $client, MessageFactory $messageFactory, $apiUrl)
     {
-        $this->apiUrl = $apiUrl;
-        $this->client = $client;
+        $this->apiUrl         = $apiUrl;
+        $this->client         = $client;
         $this->messageFactory = $messageFactory;
     }
 
@@ -53,8 +53,8 @@ class PiwikConnection implements ConnectionInterface
     {
         $params['module'] = 'API';
 
-        $url = $this->apiUrl.'?'.$this->getUrlParamString($params);
-        $request = $this->messageFactory->createRequest('GET', $url);
+        $url      = $this->apiUrl.'?'.$this->getUrlParamString($params);
+        $request  = $this->messageFactory->createRequest('GET', $url);
         $response = $this->client->sendRequest($request);
 
         if ($response->getStatusCode() !== 200) {

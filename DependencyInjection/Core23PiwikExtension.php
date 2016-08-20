@@ -24,7 +24,7 @@ class Core23PiwikExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $config        = $this->processConfiguration($configuration, $configs);
 
         $bundles = $container->getParameter('kernel.bundles');
 

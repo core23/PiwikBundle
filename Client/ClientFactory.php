@@ -35,7 +35,7 @@ class ClientFactory
      */
     public function __construct(HttpClient $client = null, MessageFactory $messageFactory)
     {
-        $this->client = $client;
+        $this->client         = $client;
         $this->messageFactory = $messageFactory;
     }
 

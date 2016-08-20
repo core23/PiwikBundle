@@ -52,7 +52,7 @@ class PiwikStatisticBlockService extends BaseBlockService
         parent::__construct($name, $templating);
 
         $this->factory = $factory;
-        $this->logger = $logger;
+        $this->logger  = $logger;
     }
 
     /**
