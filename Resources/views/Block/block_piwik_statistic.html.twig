@@ -4,7 +4,9 @@
     <div class="panel panel-default panel-piwik-statistic">
         {% if settings.title is not empty %}
             <div class="panel-heading">
-                <h4 class="panel-title"><i class="fa fa fa-bar-chart-o"></i> {{ settings.title }}</h4>
+                <h4 class="panel-title">
+                    <i class="fa fa-bar-chart-o" aria-hidden="true"></i> {{ settings.title }}
+                </h4>
             </div>
         {% endif %}
 
