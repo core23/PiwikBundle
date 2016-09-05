@@ -12,8 +12,8 @@
 namespace Core23\PiwikBundle\Block\Service;
 
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
+use Sonata\BlockBundle\Block\Service\AbstractAdminBlockService;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Sonata\CoreBundle\Form\Type\ImmutableArrayType;
 use Sonata\CoreBundle\Model\Metadata;
@@ -23,7 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PiwikTrackerBlockService extends BaseBlockService
+class PiwikTrackerBlockService extends AbstractAdminBlockService
 {
     /**
      * {@inheritdoc}
