@@ -3,7 +3,6 @@ What is PiwikBundle?
 [![Latest Stable Version](https://poser.pugx.org/core23/piwik-bundle/v/stable)](https://packagist.org/packages/core23/piwik-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/core23/piwik-bundle/v/unstable)](https://packagist.org/packages/core23/piwik-bundle)
 [![Build Status](http://img.shields.io/travis/core23/PiwikBundle.svg)](http://travis-ci.org/core23/PiwikBundle)
-[![Dependency Status](https://www.versioneye.com/php/core23:piwik-bundle/badge.svg)](https://www.versioneye.com/php/core23:piwik-bundle)
 [![License](http://img.shields.io/packagist/l/core23/piwik-bundle.svg)](https://packagist.org/packages/core23/piwik-bundle)
 
 
