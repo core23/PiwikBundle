@@ -1,7 +1,4 @@
-/*!
- * ni-ju-san CMS (http://ni-ju-san.de)
- * Copyright 2014-2016 core23 - webdesign & more
- */
+/*! (c) Christian Gripp, core23 - webdesign & more | core23.de */
 (function ($) {
     $.piwikTable = {version: '1.00'};
 
