@@ -180,7 +180,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
     /**
      * @param array $settings
      *
-     * @return mixed|null
+     * @return array|null
      */
     protected function getData($settings = array())
     {
@@ -198,6 +198,6 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
             $this->logger->warning('Error retrieving Piwik url: '.$settings['host']);
         }
 
-        return;
+        return null;
     }
 }
