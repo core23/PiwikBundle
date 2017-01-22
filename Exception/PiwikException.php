@@ -11,7 +11,7 @@
 
 namespace Core23\PiwikBundle\Exception;
 
-class PiwikException extends \Exception
+final class PiwikException extends \Exception
 {
     /**
      * @param string $message

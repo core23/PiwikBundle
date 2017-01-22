@@ -14,7 +14,7 @@ namespace Core23\PiwikBundle\Client;
 use Core23\PiwikBundle\Connection\ConnectionInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 
-class Client
+final class Client
 {
     /**
      * @var ConnectionInterface

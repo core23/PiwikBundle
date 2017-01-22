@@ -13,6 +13,6 @@ namespace Core23\PiwikBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Core23PiwikBundle extends Bundle
+final class Core23PiwikBundle extends Bundle
 {
 }

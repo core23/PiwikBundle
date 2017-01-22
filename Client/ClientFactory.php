@@ -15,7 +15,7 @@ use Core23\PiwikBundle\Connection\PiwikConnection;
 use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
 
-class ClientFactory
+final class ClientFactory
 {
     /**
      * @var HttpClient

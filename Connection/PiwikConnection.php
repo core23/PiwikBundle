@@ -15,7 +15,7 @@ use Core23\PiwikBundle\Exception\PiwikException;
 use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
 
-class PiwikConnection implements ConnectionInterface
+final class PiwikConnection implements ConnectionInterface
 {
     /**
      * @var HttpClient
