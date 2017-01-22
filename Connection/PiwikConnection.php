@@ -61,7 +61,7 @@ final class PiwikConnection implements ConnectionInterface
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 
-        return $response->getBody();
+        return $response->getBody()->getContents();
     }
 
     /**
