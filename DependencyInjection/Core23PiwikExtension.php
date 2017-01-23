@@ -50,16 +50,4 @@ final class Core23PiwikExtension extends Extension
         $container->setAlias('core23.piwik.http.client', $config['http']['client']);
         $container->setAlias('core23.piwik.http.message_factory', $config['http']['message_factory']);
     }
-
-    private function configureClassesToCompile()
-    {
-        $this->addClassesToCompile(array(
-            'Core23\\PiwikBundle\\Block\\Service\\PiwikStatisticBlockService',
-            'Core23\\PiwikBundle\\Block\\Service\\PiwikTrackerBlockService',
-            'Core23\\PiwikBundle\\Client\\Client',
-            'Core23\\PiwikBundle\\Connection\\ConnectionInterface',
-            'Core23\\PiwikBundle\\Connection\\PiwikConnection',
-            'Core23\\PiwikBundle\\Exception\\PiwikException',
-        ));
-    }
 }
