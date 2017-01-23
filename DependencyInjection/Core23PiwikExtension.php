@@ -37,8 +37,6 @@ final class Core23PiwikExtension extends Extension
         }
 
         $this->configureHttpClient($container, $config);
-
-        $this->configureClassesToCompile();
     }
 
     /**
