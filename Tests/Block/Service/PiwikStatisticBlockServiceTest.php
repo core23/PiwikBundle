@@ -13,6 +13,8 @@ namespace Core23\PiwikBundle\Tests\Block\Service;
 
 use Core23\PiwikBundle\Block\Service\PiwikStatisticBlockService;
 use Core23\PiwikBundle\Client\ClientFactory;
+use Core23\PiwikBundle\Client\ClientFactoryInterface;
+use Core23\PiwikBundle\Client\ClientInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
 use Sonata\BlockBundle\Block\BlockContext;
@@ -27,7 +29,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
     private $logger;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientFactory
+     * @var \PHPUnit_Framework_MockObject_MockObject|ClientFactoryInterface
      */
     private $factory;
 
@@ -36,19 +38,22 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         parent::setUp();
 
         $this->logger  = $this->createMock('Psr\Log\LoggerInterface');
-        $this->factory = $this->createMock('Core23\PiwikBundle\Client\ClientFactory');
+        $this->factory = $this->createMock(ClientFactoryInterface::class);
     }
 
     public function testExecute()
     {
-        $client = $this->createMock('Core23\PiwikBundle\Client\Client');
-        $client->expects($this->once())->method('call')->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
-            'idSite' => 'foo',
-            'period' => 'day',
-            'date'   => 'last30',
-        )))->will($this->returnValue('bar'));
+        $client = $this->createMock(ClientInterface::class);
+        $client->expects($this->once())->method('call')
+            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
+                'idSite' => 'foo',
+                'period' => 'day',
+                'date'   => 'last30',
+            )))
+            ->will($this->returnValue('bar'));
 
-        $this->factory->expects($this->once())->method('createPiwikClient')->will($this->returnValue($client));
+        $this->factory->expects($this->once())->method('createPiwikClient')
+            ->will($this->returnValue($client));
 
         $block = new Block();
 
@@ -76,14 +81,17 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 
     public function testExecuteOffline()
     {
-        $client = $this->createMock('Core23\PiwikBundle\Client\Client');
-        $client->expects($this->once())->method('call')->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
-            'idSite' => 'foo',
-            'period' => 'day',
-            'date'   => 'last30',
-        )))->willThrowException(new PiwikException('Offline'));
+        $client = $this->createMock(ClientInterface::class);
+        $client->expects($this->once())->method('call')
+            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
+                'idSite' => 'foo',
+                'period' => 'day',
+                'date'   => 'last30',
+            )))
+            ->willThrowException(new PiwikException('Offline'));
 
-        $this->factory->expects($this->once())->method('createPiwikClient')->will($this->returnValue($client));
+        $this->factory->expects($this->once())->method('createPiwikClient')
+            ->will($this->returnValue($client));
 
         $this->logger->expects($this->once())->method('warning');
 

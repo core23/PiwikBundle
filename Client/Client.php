@@ -14,7 +14,7 @@ namespace Core23\PiwikBundle\Client;
 use Core23\PiwikBundle\Connection\ConnectionInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 
-final class Client
+final class Client implements ClientInterface
 {
     /**
      * @var ConnectionInterface
@@ -39,9 +39,7 @@ final class Client
     }
 
     /**
-     * Set Piwik API token.
-     *
-     * @param string $token auth token
+     * @inheritdoc
      */
     public function setToken($token)
     {
@@ -49,15 +47,7 @@ final class Client
     }
 
     /**
-     * Call specific method & return it's response.
-     *
-     * @param string $method method name
-     * @param array  $params method parameters
-     * @param string $format return format (php, json, xml, csv, tsv, html, rss)
-     *
-     * @return mixed
-     *
-     * @throws PiwikException
+     * @inheritdoc
      */
     public function call($method, array $params = array(), $format = 'php')
     {
@@ -80,9 +70,7 @@ final class Client
     }
 
     /**
-     * Return active connection.
-     *
-     * @return ConnectionInterface
+     * @inheritdoc
      */
     public function getConnection()
     {

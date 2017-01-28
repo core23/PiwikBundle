@@ -12,6 +12,7 @@
 namespace Core23\PiwikBundle\Block\Service;
 
 use Core23\PiwikBundle\Client\ClientFactory;
+use Core23\PiwikBundle\Client\ClientFactoryInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -35,7 +36,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
     protected $logger;
 
     /**
-     * @var ClientFactory
+     * @var ClientFactoryInterface
      */
     protected $factory;
 
@@ -44,10 +45,10 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
      *
      * @param string          $name
      * @param EngineInterface $templating
-     * @param ClientFactory   $factory
+     * @param ClientFactoryInterface   $factory
      * @param LoggerInterface $logger
      */
-    public function __construct($name, EngineInterface $templating, ClientFactory $factory, LoggerInterface $logger)
+    public function __construct($name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger)
     {
         parent::__construct($name, $templating);
 

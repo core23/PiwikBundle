@@ -15,7 +15,7 @@ use Core23\PiwikBundle\Connection\PiwikConnection;
 use Http\Client\HttpClient;
 use Http\Message\MessageFactory;
 
-final class ClientFactory
+final class ClientFactory implements ClientFactoryInterface
 {
     /**
      * @var HttpClient
@@ -40,10 +40,7 @@ final class ClientFactory
     }
 
     /**
-     * @param string $host
-     * @param string $token
-     *
-     * @return Client
+     * @inheritdoc
      */
     public function createPiwikClient($host, $token)
     {
