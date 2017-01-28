@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the ni-ju-san CMS.
- *
  * (c) Christian Gripp <mail@core23.de>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -11,7 +9,6 @@
 
 namespace Core23\PiwikBundle\Block\Service;
 
-use Core23\PiwikBundle\Client\ClientFactory;
 use Core23\PiwikBundle\Client\ClientFactoryInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
@@ -43,10 +40,10 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
     /**
      * PiwikStatisticBlockService constructor.
      *
-     * @param string          $name
-     * @param EngineInterface $templating
-     * @param ClientFactoryInterface   $factory
-     * @param LoggerInterface $logger
+     * @param string                 $name
+     * @param EngineInterface        $templating
+     * @param ClientFactoryInterface $factory
+     * @param LoggerInterface        $logger
      */
     public function __construct($name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger)
     {

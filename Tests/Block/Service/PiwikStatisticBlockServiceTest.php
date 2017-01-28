@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the ni-ju-san CMS.
- *
  * (c) Christian Gripp <mail@core23.de>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -12,7 +10,6 @@
 namespace Core23\PiwikBundle\Tests\Block\Service;
 
 use Core23\PiwikBundle\Block\Service\PiwikStatisticBlockService;
-use Core23\PiwikBundle\Client\ClientFactory;
 use Core23\PiwikBundle\Client\ClientFactoryInterface;
 use Core23\PiwikBundle\Client\ClientInterface;
 use Core23\PiwikBundle\Exception\PiwikException;

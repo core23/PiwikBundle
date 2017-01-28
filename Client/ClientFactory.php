@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the ni-ju-san CMS.
- *
  * (c) Christian Gripp <mail@core23.de>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -40,7 +38,7 @@ final class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createPiwikClient($host, $token)
     {

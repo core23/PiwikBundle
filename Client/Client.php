@@ -1,8 +1,6 @@
 <?php
 
 /*
- * This file is part of the ni-ju-san CMS.
- *
  * (c) Christian Gripp <mail@core23.de>
  *
  * For the full copyright and license information, please view the LICENSE
@@ -39,7 +37,7 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setToken($token)
     {
@@ -47,7 +45,7 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function call($method, array $params = array(), $format = 'php')
     {
@@ -70,7 +68,7 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getConnection()
     {
