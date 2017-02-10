@@ -2,9 +2,13 @@ What is PiwikBundle?
 =============================
 [![Latest Stable Version](https://poser.pugx.org/core23/piwik-bundle/v/stable)](https://packagist.org/packages/core23/piwik-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/core23/piwik-bundle/v/unstable)](https://packagist.org/packages/core23/piwik-bundle)
-[![Build Status](http://img.shields.io/travis/core23/PiwikBundle.svg)](http://travis-ci.org/core23/PiwikBundle)
-[![License](http://img.shields.io/packagist/l/core23/piwik-bundle.svg)](https://packagist.org/packages/core23/piwik-bundle)
+[![License](https://poser.pugx.org/core23/piwik-bundle/license)](https://packagist.org/packages/core23/piwik-bundle)
 
+[![Build Status](https://travis-ci.org/core23/PiwikBundle.svg)](https://travis-ci.org/core23/PiwikBundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/PiwikBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/core23/PiwikBundle)
+[![Code Climate](https://codeclimate.com/github/core23/PiwikBundle/badges/gpa.svg)](https://codeclimate.com/github/core23/PiwikBundle)
+[![Coverage Status](https://coveralls.io/repos/core23/PiwikBundle/badge.svg)](https://coveralls.io/r/core23/PiwikBundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/bf672b9b-c823-409d-b554-bed75eadab12/mini.png)](https://insight.sensiolabs.com/projects/bf672b9b-c823-409d-b554-bed75eadab12)
 
 [![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/core23)
 [![Donate to this project using PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/gripp)
