@@ -19,5 +19,5 @@ interface ClientFactoryInterface
      *
      * @return ClientInterface
      */
-    public function createPiwikClient($host, $token);
+    public function createPiwikClient(string $host, string $token): ClientInterface;
 }

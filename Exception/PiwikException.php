@@ -14,7 +14,7 @@ final class PiwikException extends \Exception
     /**
      * @param string $message
      */
-    public function __construct($message)
+    public function __construct(string $message)
     {
         $message = 'Piwik API error: '.$message;
         parent::__construct($message);

@@ -37,7 +37,7 @@ final class PiwikConnection implements ConnectionInterface
      * @param MessageFactory $messageFactory
      * @param string         $apiUrl         base API URL
      */
-    public function __construct(HttpClient $client, MessageFactory $messageFactory, $apiUrl)
+    public function __construct(HttpClient $client, MessageFactory $messageFactory, string $apiUrl)
     {
         $this->apiUrl         = $apiUrl;
         $this->client         = $client;
@@ -47,7 +47,7 @@ final class PiwikConnection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function send(array $params = array())
+    public function send(array $params = array()): string
     {
         $params['module'] = 'API';
 
@@ -69,7 +69,7 @@ final class PiwikConnection implements ConnectionInterface
      *
      * @return string query string
      */
-    protected function getUrlParamString(array $params)
+    protected function getUrlParamString(array $params): string
     {
         $query = array();
         foreach ($params as $key => $val) {

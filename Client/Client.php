@@ -30,7 +30,7 @@ final class Client implements ClientInterface
      * @param ConnectionInterface $connection Piwik active connection
      * @param string              $token      auth token
      */
-    public function __construct(ConnectionInterface $connection, $token = 'anonymous')
+    public function __construct(ConnectionInterface $connection, string $token = 'anonymous')
     {
         $this->connection = $connection;
         $this->setToken($token);
@@ -39,7 +39,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function setToken($token)
+    public function setToken(string $token)
     {
         $this->token = $token;
     }
@@ -47,7 +47,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function call($method, array $params = array(), $format = 'php')
+    public function call(string $method, array $params = array(), $format = 'php')
     {
         $params['method']     = $method;
         $params['token_auth'] = $this->token;
@@ -70,7 +70,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getConnection()
+    public function getConnection(): \Core23\PiwikBundle\Connection\ConnectionInterface
     {
         return $this->connection;
     }

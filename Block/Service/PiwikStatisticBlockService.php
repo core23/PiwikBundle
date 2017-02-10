@@ -45,7 +45,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
      * @param ClientFactoryInterface $factory
      * @param LoggerInterface        $logger
      */
-    public function __construct($name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger)
+    public function __construct(string $name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger)
     {
         parent::__construct($name, $templating);
 

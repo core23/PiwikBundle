@@ -19,7 +19,7 @@ interface ClientInterface
      *
      * @param string $token auth token
      */
-    public function setToken($token);
+    public function setToken(string $token);
 
     /**
      * Call specific method & return it's response.
@@ -32,12 +32,12 @@ interface ClientInterface
      *
      * @throws PiwikException
      */
-    public function call($method, array $params = array(), $format = 'php');
+    public function call(string $method, array $params = array(), $format = 'php');
 
     /**
      * Return active connection.
      *
      * @return ConnectionInterface
      */
-    public function getConnection();
+    public function getConnection(): ConnectionInterface;
 }

@@ -18,5 +18,5 @@ interface ConnectionInterface
      *
      * @return string response
      */
-    public function send(array $params = array());
+    public function send(array $params = array()): string;
 }
