@@ -40,7 +40,7 @@ final class ClientFactory implements ClientFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function createPiwikClient(string $host, string $token): \Core23\PiwikBundle\Client\ClientInterface
+    public function createPiwikClient(string $host, string $token): ClientInterface
     {
         $connection = new PiwikConnection($this->client, $this->messageFactory, $host);
 

@@ -70,7 +70,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getConnection(): \Core23\PiwikBundle\Connection\ConnectionInterface
+    public function getConnection(): ConnectionInterface
     {
         return $this->connection;
     }
