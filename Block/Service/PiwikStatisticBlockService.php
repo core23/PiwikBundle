@@ -11,7 +11,10 @@ namespace Core23\PiwikBundle\Block\Service;
 
 use Core23\PiwikBundle\Client\ClientFactoryInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
+use Psr\Log\LoggerAwareInterface;
+use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Block\Service\AbstractAdminBlockService;
@@ -25,12 +28,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class PiwikStatisticBlockService extends AbstractAdminBlockService
+final class PiwikStatisticBlockService extends AbstractAdminBlockService implements LoggerAwareInterface
 {
-    /**
-     * @var LoggerInterface
-     */
-    protected $logger;
+    use LoggerAwareTrait;
 
     /**
      * @var ClientFactoryInterface
@@ -45,9 +45,15 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService
      * @param ClientFactoryInterface $factory
      * @param LoggerInterface        $logger
      */
-    public function __construct(string $name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger)
+    public function __construct(string $name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger = null)
     {
         parent::__construct($name, $templating);
+
+        if (null === $logger) {
+            $logger = new NullLogger();
+        } else {
+            @trigger_error('Injecting a logger in the constructor method is depreacted', E_USER_DEPRECATED);
+        }
 
         $this->factory = $factory;
         $this->logger  = $logger;
