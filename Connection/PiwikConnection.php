@@ -69,7 +69,7 @@ final class PiwikConnection implements ConnectionInterface
      *
      * @return string query string
      */
-    protected function getUrlParamString(array $params): string
+    private function getUrlParamString(array $params): string
     {
         $query = array();
         foreach ($params as $key => $val) {
