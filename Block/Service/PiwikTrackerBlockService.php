@@ -88,7 +88,7 @@ final class PiwikTrackerBlockService extends AbstractAdminBlockService
      */
     public function getBlockMetadata($code = null)
     {
-        return new Metadata($this->getName(), (null !== $code ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
+        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', array(
             'class' => 'fa fa-code',
         ));
     }

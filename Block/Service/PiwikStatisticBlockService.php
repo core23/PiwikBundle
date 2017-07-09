@@ -176,7 +176,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      */
     public function getBlockMetadata($code = null)
     {
-        return new Metadata($this->getName(), (null !== $code ? $code : $this->getName()), false, 'Core23PiwikBundle', array(
+        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', array(
             'class' => 'fa fa-area-chart',
         ));
     }
@@ -186,7 +186,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      *
      * @return array|null
      */
-    protected function getData($settings = array())
+    protected function getData(array $settings = array())
     {
         try {
             $client = $this->factory->createPiwikClient($settings['host'], $settings['token']);

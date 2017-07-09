@@ -17,6 +17,7 @@ use Psr\Log\LoggerInterface;
 use Sonata\BlockBundle\Block\BlockContext;
 use Sonata\BlockBundle\Model\Block;
 use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
+use Sonata\BlockBundle\Model\BlockInterface;
 
 class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 {
@@ -34,7 +35,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
     {
         parent::setUp();
 
-        $this->logger  = $this->createMock('Psr\Log\LoggerInterface');
+        $this->logger  = $this->createMock(LoggerInterface::class);
         $this->factory = $this->createMock(ClientFactoryInterface::class);
     }
 
@@ -72,7 +73,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
-        $this->assertInstanceOf('Sonata\BlockBundle\Model\BlockInterface', $this->templating->parameters['block']);
+        $this->assertInstanceOf(BlockInterface::class, $this->templating->parameters['block']);
         $this->assertSame('bar', $this->templating->parameters['data']);
     }
 
@@ -113,8 +114,8 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
-        $this->assertInstanceOf('Sonata\BlockBundle\Model\BlockInterface', $this->templating->parameters['block']);
-        $this->assertSame(null, $this->templating->parameters['data']);
+        $this->assertInstanceOf(BlockInterface::class, $this->templating->parameters['block']);
+        $this->assertNull($this->templating->parameters['data']);
     }
 
     public function testDefaultSettings()
