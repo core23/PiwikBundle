@@ -199,7 +199,9 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
 
             return $response;
         } catch (PiwikException $ce) {
-            $this->logger->warning('Error retrieving Piwik url: '.$settings['host']);
+            $this->logger->warning('Error retrieving Piwik url: '.$settings['host'], array(
+                'exception' => $ce,
+            ));
         }
 
         return null;
