@@ -16,8 +16,8 @@ use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerInterface;
 use Sonata\BlockBundle\Block\BlockContext;
 use Sonata\BlockBundle\Model\Block;
-use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 use Sonata\BlockBundle\Model\BlockInterface;
+use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
 class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 {
