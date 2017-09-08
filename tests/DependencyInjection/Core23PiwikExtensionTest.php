@@ -23,7 +23,7 @@ class Core23PiwikExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasAlias('core23.piwik.http.message_factory', 'httplug.message_factory.default');
     }
 
-    protected function getContainerExtensions()
+    protected function getContainerExtensions(): array
     {
         return array(
             new Core23PiwikExtension(),

@@ -39,7 +39,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function setToken(string $token)
+    public function setToken(string $token): void
     {
         $this->token = $token;
     }
