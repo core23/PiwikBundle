@@ -46,11 +46,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Core23\\PiwikBundle\\": ""
-    },
-    "exclude-from-classmap": [
-        "/Tests/"
-    ]
+      "Core23\\PiwikBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Core23\\PiwikBundle\\Tests\\": "tests/"
+    }
   },
   "extra": {
     "branch-alias": {
