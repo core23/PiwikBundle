@@ -48,7 +48,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
                 'period' => 'day',
                 'date'   => 'last30',
             )))
-            ->will($this->returnValue('bar'));
+            ->will($this->returnValue(array('bar')));
 
         $this->factory->expects($this->once())->method('createPiwikClient')
             ->will($this->returnValue($client));
@@ -74,7 +74,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
         $this->assertInstanceOf(BlockInterface::class, $this->templating->parameters['block']);
-        $this->assertSame('bar', $this->templating->parameters['data']);
+        $this->assertSame(array('bar'), $this->templating->parameters['data']);
     }
 
     public function testExecuteOffline()
