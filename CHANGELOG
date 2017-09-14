@@ -1,0 +1,48 @@
+14/09/2017 08:05  2.0.0  2.0.0
+0e51e12 Apply fixes from StyleCI
+ce41468 Removed useless protected visibility
+a6af110 Remove deprecation
+9922dca Fixed tests
+ecce83a Added type hints
+bad9bd6 [travis] Moved phpstan to allow failures
+996a04b Missing test files after refactoring folder structure
+56a2b4f Refactor folder structure
+e4ae816 Use latest phpstan version
+49284b5 Dropped support for PHP 7.0
+d73165e Sorted dependencies
+8dc0769 Fixed PHPStan runner
+cea6b68 Added PHPStan checks to travis
+2d2dbef Added option to sort composer packages
+aacae4e Removed HHVM from travis setup
+7bc70d0 Dropped support for outdated symfony versions
+bffd31f Fixed wrong export-ignore entry
+38a5598 Apply fixes from StyleCI
+84a3e40 Use new PHP features (::class, null coalescing)
+525ef53 Improved exception handling
+a074851 Fixed CS
+c1ec351 Added workaround for composer bug #6207
+8e0f7c2 Switch logger injection to setter
+dde5b9f Created liip/rmt config
+a693241 Removed unused files
+2016fac Added unit tests for dependency injection
+4875ee0 Updated composer description
+06f40a9 Updated bower dependencies
+36ebeea Removed FQCN
+5359fb5 Drop old phpunit-bridge
+71f267b Updated travis config
+5cf3123 Updated badges
+f27169e Update for PHPUnit 5.7
+d90603a Added PHP 7 type declarations
+94c5407 Update for PHPUnit 5.7
+83f3e6c Fixed cs
+cf1f3de Updated file header
+5d4f474 Extract interfaces
+8070180 Removed useless autoload-dev entry
+a39281d Removed deprecated configureClassesToCompile method
+16735e9 Removed deprecated configureClassesToCompile method
+df4ecdf Revert: Disallow simplified_null_return fixer
+240f4dc PiwikConnection returns string instead StreamInterface.
+e84e796 Fixed empty return types
+551ebab Disallow simplified_null_return fixer
+9688419 Closing public API
+33b8427 Cleanup dependencies
