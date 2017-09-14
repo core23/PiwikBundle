@@ -43,20 +43,13 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      * @param string                 $name
      * @param EngineInterface        $templating
      * @param ClientFactoryInterface $factory
-     * @param LoggerInterface        $logger
      */
-    public function __construct(string $name, EngineInterface $templating, ClientFactoryInterface $factory, LoggerInterface $logger = null)
+    public function __construct(string $name, EngineInterface $templating, ClientFactoryInterface $factory)
     {
         parent::__construct($name, $templating);
 
-        if (null === $logger) {
-            $logger = new NullLogger();
-        } else {
-            @trigger_error('Injecting a logger in the constructor method is depreacted', E_USER_DEPRECATED);
-        }
-
         $this->factory = $factory;
-        $this->logger  = $logger;
+        $this->logger  = new NullLogger();
     }
 
     /**
