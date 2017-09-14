@@ -35,7 +35,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
     /**
      * @var ClientFactoryInterface
      */
-    protected $factory;
+    private $factory;
 
     /**
      * PiwikStatisticBlockService constructor.
