@@ -13,7 +13,6 @@ use Core23\PiwikBundle\Client\ClientFactoryInterface;
 use Core23\PiwikBundle\Exception\PiwikException;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
-use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BlockContextInterface;
