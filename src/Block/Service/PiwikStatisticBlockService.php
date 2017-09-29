@@ -178,7 +178,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      *
      * @return array|null
      */
-    protected function getData(array $settings = array()): ?array
+    protected function getData(array $settings = array()): ? array
     {
         try {
             $client = $this->factory->createPiwikClient($settings['host'], $settings['token']);
