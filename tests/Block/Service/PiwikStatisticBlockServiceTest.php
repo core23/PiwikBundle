@@ -66,7 +66,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
         ));
 
-        $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory, $this->logger);
+        $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->execute($blockContext);
 
         $this->assertSame('Core23PiwikBundle:Block:block_piwik_statistic.html.twig', $this->templating->view);
