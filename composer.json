@@ -38,7 +38,7 @@
     "sebastian/exporter": "^2.0",
     "sllh/php-cs-fixer-styleci-bridge": "^2.0",
     "sonata-project/admin-bundle": "^3.1",
-    "symfony/phpunit-bridge": "^3.2"
+    "symfony/phpunit-bridge": "^3.3.12"
   },
   "suggest": {
     "php-http/buzz-adapter": "Buzz HTTP client implementation",
