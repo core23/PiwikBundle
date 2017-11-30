@@ -148,8 +148,8 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
     public function getJavascripts($media)
     {
         return array(
-            '/assets/js/chartist.js',
-            '/assets/js/jquery.piwikTable.js',
+            '/assets/javascript/chartist.js',
+            '/assets/javascript/jquery.piwikTable.js',
         );
     }
 
@@ -159,7 +159,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
     public function getStylesheets($media)
     {
         return array(
-            '/assets/css/chartist.css',
+            '/assets/stylesheet/chartist.css',
         );
     }
 
