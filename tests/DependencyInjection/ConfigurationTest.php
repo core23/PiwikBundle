@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -15,19 +17,19 @@ use Symfony\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends TestCase
 {
-    public function testOptions()
+    public function testOptions(): void
     {
         $processor = new Processor();
 
-        $config = $processor->processConfiguration(new Configuration(), array(array(
-        )));
+        $config = $processor->processConfiguration(new Configuration(), [[
+        ]]);
 
-        $expected = array(
-            'http' => array(
+        $expected = [
+            'http' => [
                 'client'          => 'httplug.client.default',
                 'message_factory' => 'httplug.message_factory.default',
-            ),
-        );
+            ],
+        ];
 
         $this->assertSame($expected, $config);
     }

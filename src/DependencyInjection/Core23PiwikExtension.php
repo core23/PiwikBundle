@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -19,7 +21,7 @@ final class Core23PiwikExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
@@ -41,7 +43,7 @@ final class Core23PiwikExtension extends Extension
      * @param ContainerBuilder $container
      * @param array            $config
      */
-    private function configureHttpClient(ContainerBuilder $container, array $config)
+    private function configureHttpClient(ContainerBuilder $container, array $config): void
     {
         $container->setAlias('core23.piwik.http.client', $config['http']['client']);
         $container->setAlias('core23.piwik.http.message_factory', $config['http']['message_factory']);

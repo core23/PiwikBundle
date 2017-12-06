@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -18,5 +20,5 @@ interface ConnectionInterface
      *
      * @return string response
      */
-    public function send(array $params = array()): string;
+    public function send(array $params = []): string;
 }

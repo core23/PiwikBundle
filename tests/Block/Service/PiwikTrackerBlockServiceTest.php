@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -17,18 +19,18 @@ use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
 class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
 {
-    public function testExecute()
+    public function testExecute(): void
     {
         $block = new Block();
 
-        $blockContext = new BlockContext($block, array(
+        $blockContext = new BlockContext($block, [
             'host'        => null,
             'site'        => false,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
             'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
-        ));
+        ]);
 
         $blockService = new PiwikTrackerBlockService('block.service', $this->templating);
         $blockService->execute($blockContext);
@@ -40,18 +42,18 @@ class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
         $this->assertInstanceOf(BlockInterface::class, $this->templating->parameters['block']);
     }
 
-    public function testDefaultSettings()
+    public function testDefaultSettings(): void
     {
         $blockService = new PiwikTrackerBlockService('block.service', $this->templating);
         $blockContext = $this->getBlockContext($blockService);
 
-        $this->assertSettings(array(
+        $this->assertSettings([
             'host'        => null,
             'site'        => false,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
             'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
-        ), $blockContext);
+        ], $blockContext);
     }
 }

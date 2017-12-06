@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -31,7 +33,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
      */
     private $factory;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -39,23 +41,23 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $this->factory = $this->createMock(ClientFactoryInterface::class);
     }
 
-    public function testExecute()
+    public function testExecute(): void
     {
         $client = $this->createMock(ClientInterface::class);
         $client->expects($this->once())->method('call')
-            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
+            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo([
                 'idSite' => 'foo',
                 'period' => 'day',
                 'date'   => 'last30',
-            )))
-            ->will($this->returnValue(array('bar')));
+            ]))
+            ->will($this->returnValue(['bar']));
 
         $this->factory->expects($this->once())->method('createPiwikClient')
             ->will($this->returnValue($client));
 
         $block = new Block();
 
-        $blockContext = new BlockContext($block, array(
+        $blockContext = new BlockContext($block, [
             'title'    => 'Piwik Statistic',
             'site'     => 'foo',
             'method'   => 'VisitsSummary.getVisits',
@@ -64,7 +66,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'period'   => 'day',
             'date'     => 'last30',
             'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
-        ));
+        ]);
 
         $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->execute($blockContext);
@@ -74,18 +76,18 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
         $this->assertInstanceOf(BlockInterface::class, $this->templating->parameters['block']);
-        $this->assertSame(array('bar'), $this->templating->parameters['data']);
+        $this->assertSame(['bar'], $this->templating->parameters['data']);
     }
 
-    public function testExecuteOffline()
+    public function testExecuteOffline(): void
     {
         $client = $this->createMock(ClientInterface::class);
         $client->expects($this->once())->method('call')
-            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo(array(
+            ->with($this->equalTo('VisitsSummary.getVisits'), $this->equalTo([
                 'idSite' => 'foo',
                 'period' => 'day',
                 'date'   => 'last30',
-            )))
+            ]))
             ->willThrowException(new PiwikException('Offline'));
 
         $this->factory->expects($this->once())->method('createPiwikClient')
@@ -95,7 +97,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 
         $block = new Block();
 
-        $blockContext = new BlockContext($block, array(
+        $blockContext = new BlockContext($block, [
             'title'    => 'Piwik Statistic',
             'site'     => 'foo',
             'method'   => 'VisitsSummary.getVisits',
@@ -104,7 +106,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'period'   => 'day',
             'date'     => 'last30',
             'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
-        ));
+        ]);
 
         $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->setLogger($this->logger);
@@ -118,13 +120,13 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $this->assertNull($this->templating->parameters['data']);
     }
 
-    public function testDefaultSettings()
+    public function testDefaultSettings(): void
     {
         $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->setLogger($this->logger);
         $blockContext = $this->getBlockContext($blockService);
 
-        $this->assertSettings(array(
+        $this->assertSettings([
             'title'    => 'Piwik Statistic',
             'site'     => false,
             'method'   => 'VisitsSummary.getVisits',
@@ -133,6 +135,6 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'period'   => 'day',
             'date'     => 'last30',
             'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
-        ), $blockContext);
+        ], $blockContext);
     }
 }

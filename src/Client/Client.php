@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -47,7 +49,7 @@ final class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function call(string $method, array $params = array(), $format = 'php')
+    public function call(string $method, array $params = [], $format = 'php')
     {
         $params['method']     = $method;
         $params['token_auth'] = $this->token;

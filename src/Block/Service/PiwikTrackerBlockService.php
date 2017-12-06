@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -28,59 +30,59 @@ final class PiwikTrackerBlockService extends AbstractAdminBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        return $this->renderResponse($blockContext->getTemplate(), array(
+        return $this->renderResponse($blockContext->getTemplate(), [
             'context'  => $blockContext,
             'settings' => $blockContext->getSettings(),
             'block'    => $blockContext->getBlock(),
-        ), $response);
+        ], $response);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+    public function buildEditForm(FormMapper $formMapper, BlockInterface $block): void
     {
-        $formMapper->add('settings', ImmutableArrayType::class, array(
-            'keys' => array(
-                array('host', TextType::class, array(
+        $formMapper->add('settings', ImmutableArrayType::class, [
+            'keys' => [
+                ['host', TextType::class, [
                     'required' => false,
                     'label'    => 'form.label_host',
-                )),
-                array('site', NumberType::class, array(
+                ]],
+                ['site', NumberType::class, [
                     'label' => 'form.label_site',
-                )),
-                array('domaintitle', CheckboxType::class, array(
+                ]],
+                ['domaintitle', CheckboxType::class, [
                     'label'    => 'form.label_domaintitle',
                     'required' => false,
-                )),
-                array('nocookies', CheckboxType::class, array(
+                ]],
+                ['nocookies', CheckboxType::class, [
                     'label'    => 'form.label_nocookies',
                     'required' => false,
-                )),
-                array('donottrack', CheckboxType::class, array(
+                ]],
+                ['donottrack', CheckboxType::class, [
                     'label'    => 'form.label_donottrack',
                     'required' => false,
-                )),
-            ),
+                ]],
+            ],
             'translation_domain' => 'Core23PiwikBundle',
-        ));
+        ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureSettings(OptionsResolver $resolver)
+    public function configureSettings(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'host'        => null,
             'site'        => false,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
             'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
-        ));
+        ]);
 
-        $resolver->setRequired(array('site', 'host'));
+        $resolver->setRequired(['site', 'host']);
     }
 
     /**
@@ -88,8 +90,8 @@ final class PiwikTrackerBlockService extends AbstractAdminBlockService
      */
     public function getBlockMetadata($code = null)
     {
-        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', array(
+        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', [
             'class' => 'fa fa-code',
-        ));
+        ]);
     }
 }

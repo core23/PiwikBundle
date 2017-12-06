@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -28,11 +30,11 @@ interface ClientInterface
      * @param array  $params method parameters
      * @param string $format return format (php, json, xml, csv, tsv, html, rss)
      *
-     * @return mixed
-     *
      * @throws PiwikException
+     *
+     * @return mixed
      */
-    public function call(string $method, array $params = array(), $format = 'php');
+    public function call(string $method, array $params = [], $format = 'php');
 
     /**
      * Return active connection.

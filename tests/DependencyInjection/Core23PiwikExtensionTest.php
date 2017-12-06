@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -14,9 +16,9 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 class Core23PiwikExtensionTest extends AbstractExtensionTestCase
 {
-    public function testLoadDefault()
+    public function testLoadDefault(): void
     {
-        $this->setParameter('kernel.bundles', array());
+        $this->setParameter('kernel.bundles', []);
         $this->load();
 
         $this->assertContainerBuilderHasAlias('core23.piwik.http.client', 'httplug.client.default');
@@ -25,8 +27,8 @@ class Core23PiwikExtensionTest extends AbstractExtensionTestCase
 
     protected function getContainerExtensions(): array
     {
-        return array(
+        return [
             new Core23PiwikExtension(),
-        );
+        ];
     }
 }

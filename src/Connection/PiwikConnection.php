@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -47,7 +49,7 @@ final class PiwikConnection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function send(array $params = array()): string
+    public function send(array $params = []): string
     {
         $params['module'] = 'API';
 
@@ -55,7 +57,7 @@ final class PiwikConnection implements ConnectionInterface
         $request  = $this->messageFactory->createRequest('GET', $url);
         $response = $this->client->sendRequest($request);
 
-        if ($response->getStatusCode() !== 200) {
+        if (200 !== $response->getStatusCode()) {
             throw new PiwikException(sprintf('"%s" returned an invalid status code: "%s"', $url, $response->getStatusCode()));
         }
 
@@ -71,7 +73,7 @@ final class PiwikConnection implements ConnectionInterface
      */
     private function getUrlParamString(array $params): string
     {
-        $query = array();
+        $query = [];
         foreach ($params as $key => $val) {
             if (is_array($val)) {
                 $val = implode(',', $val);

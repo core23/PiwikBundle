@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -56,57 +58,57 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        return $this->renderResponse($blockContext->getTemplate(), array(
+        return $this->renderResponse($blockContext->getTemplate(), [
             'context'  => $blockContext,
             'settings' => $blockContext->getSettings(),
             'block'    => $blockContext->getBlock(),
             'data'     => $this->getData($blockContext->getSettings()),
-        ), $response);
+        ], $response);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+    public function buildEditForm(FormMapper $formMapper, BlockInterface $block): void
     {
-        $formMapper->add('settings', ImmutableArrayType::class, array(
-            'keys' => array(
-                array('title', TextType::class, array(
+        $formMapper->add('settings', ImmutableArrayType::class, [
+            'keys' => [
+                ['title', TextType::class, [
                     'required' => false,
                     'label'    => 'form.label_title',
-                )),
-                array('host', TextType::class, array(
+                ]],
+                ['host', TextType::class, [
                     'required' => false,
                     'label'    => 'form.label_host',
-                )),
-                array('token', TextType::class, array(
+                ]],
+                ['token', TextType::class, [
                     'required' => false,
                     'label'    => 'form.label_token',
-                )),
-                array('site', NumberType::class, array(
+                ]],
+                ['site', NumberType::class, [
                     'label' => 'form.label_site',
-                )),
-                array('method', ChoiceType::class, array(
-                    'choices' => array(
+                ]],
+                ['method', ChoiceType::class, [
+                    'choices' => [
                         'form.choice_visitors'        => 'VisitsSummary.getVisits',
                         'form.choice_unique_visitors' => 'VisitsSummary.getUniqueVisitors',
                         'form.choice_hits'            => 'VisitsSummary.getActions ',
-                    ),
+                    ],
                     'choices_as_values' => true,
                     'label'             => 'form.label_method',
-                )),
-                array('period', ChoiceType::class, array(
-                    'choices' => array(
+                ]],
+                ['period', ChoiceType::class, [
+                    'choices' => [
                         'form.choice_day'   => 'day',
                         'form.choice_week'  => 'week',
                         'form.choice_month' => 'month',
                         'form.choice_year'  => 'year',
-                    ),
+                    ],
                     'choices_as_values' => true,
                     'label'             => 'form.label_period',
-                )),
-                array('date', ChoiceType::class, array(
-                    'choices' => array(
+                ]],
+                ['date', ChoiceType::class, [
+                    'choices' => [
                         'form.choice_today'    => 'last1',
                         'form.choice_1_week'   => 'last7',
                         'form.choice_2_weeks'  => 'last14',
@@ -114,21 +116,21 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
                         'form.choice_3_months' => 'last90',
                         'form.choice_6_months' => 'last180',
                         'form.choice_1_year'   => 'last360',
-                    ),
+                    ],
                     'choices_as_values' => true,
                     'label'             => 'form.label_date',
-                )),
-            ),
+                ]],
+            ],
             'translation_domain' => 'Core23PiwikBundle',
-        ));
+        ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function configureSettings(OptionsResolver $resolver)
+    public function configureSettings(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'title'    => 'Piwik Statistic',
             'site'     => false,
             'method'   => 'VisitsSummary.getVisits',
@@ -137,9 +139,9 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
             'period'   => 'day',
             'date'     => 'last30',
             'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
-        ));
+        ]);
 
-        $resolver->setRequired(array('site', 'host', 'token'));
+        $resolver->setRequired(['site', 'host', 'token']);
     }
 
     /**
@@ -147,10 +149,10 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      */
     public function getJavascripts($media)
     {
-        return array(
+        return [
             '/assets/javascript/chartist.js',
             '/assets/javascript/jquery.piwikTable.js',
-        );
+        ];
     }
 
     /**
@@ -158,9 +160,9 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      */
     public function getStylesheets($media)
     {
-        return array(
+        return [
             '/assets/stylesheet/chartist.css',
-        );
+        ];
     }
 
     /**
@@ -168,9 +170,9 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      */
     public function getBlockMetadata($code = null)
     {
-        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', array(
+        return new Metadata($this->getName(), $code ?? $this->getName(), false, 'Core23PiwikBundle', [
             'class' => 'fa fa-area-chart',
-        ));
+        ]);
     }
 
     /**
@@ -178,22 +180,22 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
      *
      * @return array|null
      */
-    protected function getData(array $settings = array()): ? array
+    protected function getData(array $settings = []): ?array
     {
         try {
             $client = $this->factory->createPiwikClient($settings['host'], $settings['token']);
 
-            $response = $client->call($settings['method'], array(
+            $response = $client->call($settings['method'], [
                 'idSite' => $settings['site'],
                 'period' => $settings['period'],
                 'date'   => $settings['date'],
-            ));
+            ]);
 
             return $response;
         } catch (PiwikException $ce) {
-            $this->logger->warning('Error retrieving Piwik url: '.$settings['host'], array(
+            $this->logger->warning('Error retrieving Piwik url: '.$settings['host'], [
                 'exception' => $ce,
-            ));
+            ]);
         }
 
         return null;

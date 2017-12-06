@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -23,7 +25,7 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
 
         /** @var ArrayNodeDefinition $node */
-        $node        = $treeBuilder->root('core23_piwik');
+        $node = $treeBuilder->root('core23_piwik');
 
         $this->addHttpClientSection($node);
 
@@ -33,7 +35,7 @@ final class Configuration implements ConfigurationInterface
     /**
      * @param ArrayNodeDefinition $node
      */
-    private function addHttpClientSection(ArrayNodeDefinition $node)
+    private function addHttpClientSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
