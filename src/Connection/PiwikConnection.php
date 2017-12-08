@@ -86,7 +86,7 @@ final class PiwikConnection implements ConnectionInterface
                     continue;
                 }
             } else {
-                $val = urlencode($val);
+                $val = urlencode((string) $val);
             }
             $query[] = $key.'='.$val;
         }
