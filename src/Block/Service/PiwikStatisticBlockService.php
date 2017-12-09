@@ -94,8 +94,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
                         'form.choice_unique_visitors' => 'VisitsSummary.getUniqueVisitors',
                         'form.choice_hits'            => 'VisitsSummary.getActions ',
                     ],
-                    'choices_as_values' => true,
-                    'label'             => 'form.label_method',
+                    'label' => 'form.label_method',
                 ]],
                 ['period', ChoiceType::class, [
                     'choices' => [
@@ -104,8 +103,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
                         'form.choice_month' => 'month',
                         'form.choice_year'  => 'year',
                     ],
-                    'choices_as_values' => true,
-                    'label'             => 'form.label_period',
+                    'label' => 'form.label_period',
                 ]],
                 ['date', ChoiceType::class, [
                     'choices' => [
@@ -117,8 +115,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
                         'form.choice_6_months' => 'last180',
                         'form.choice_1_year'   => 'last360',
                     ],
-                    'choices_as_values' => true,
-                    'label'             => 'form.label_date',
+                    'label' => 'form.label_date',
                 ]],
             ],
             'translation_domain' => 'Core23PiwikBundle',
