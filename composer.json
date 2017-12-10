@@ -25,7 +25,6 @@
     "psr/log": "^1.0",
     "sonata-project/block-bundle": "^3.3",
     "sonata-project/core-bundle": "^3.0",
-    "symfony/assetic-bundle": "^2.8.2",
     "symfony/dependency-injection": "^3.4 || ^4.0",
     "symfony/expression-language": "^3.4 || ^4.0",
     "symfony/form": "^3.4 || ^4.0",
