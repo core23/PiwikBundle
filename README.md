@@ -6,7 +6,6 @@ What is PiwikBundle?
 
 [![Build Status](https://travis-ci.org/core23/PiwikBundle.svg)](https://travis-ci.org/core23/PiwikBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/PiwikBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/core23/PiwikBundle)
-[![Code Climate](https://codeclimate.com/github/core23/PiwikBundle/badges/gpa.svg)](https://codeclimate.com/github/core23/PiwikBundle)
 [![Coverage Status](https://coveralls.io/repos/core23/PiwikBundle/badge.svg)](https://coveralls.io/r/core23/PiwikBundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/bf672b9b-c823-409d-b554-bed75eadab12/mini.png)](https://insight.sensiolabs.com/projects/bf672b9b-c823-409d-b554-bed75eadab12)
 
