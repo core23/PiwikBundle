@@ -29,13 +29,13 @@ class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
-            'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
+            'template'    => '@Core23Piwik/Block/block_piwik_tracker.html.twig',
         ]);
 
         $blockService = new PiwikTrackerBlockService('block.service', $this->templating);
         $blockService->execute($blockContext);
 
-        $this->assertSame('Core23PiwikBundle:Block:block_piwik_tracker.html.twig', $this->templating->view);
+        $this->assertSame('@Core23Piwik/Block/block_piwik_tracker.html.twig', $this->templating->view);
 
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
@@ -53,7 +53,7 @@ class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
-            'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
+            'template'    => '@Core23Piwik/Block/block_piwik_tracker.html.twig',
         ], $blockContext);
     }
 }

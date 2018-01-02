@@ -65,13 +65,13 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'token'    => '0815',
             'period'   => 'day',
             'date'     => 'last30',
-            'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
+            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ]);
 
         $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->execute($blockContext);
 
-        $this->assertSame('Core23PiwikBundle:Block:block_piwik_statistic.html.twig', $this->templating->view);
+        $this->assertSame('@Core23Piwik/Block/block_piwik_statistic.html.twig', $this->templating->view);
 
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
@@ -105,14 +105,14 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'token'    => '0815',
             'period'   => 'day',
             'date'     => 'last30',
-            'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
+            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ]);
 
         $blockService = new PiwikStatisticBlockService('block.service', $this->templating, $this->factory);
         $blockService->setLogger($this->logger);
         $blockService->execute($blockContext);
 
-        $this->assertSame('Core23PiwikBundle:Block:block_piwik_statistic.html.twig', $this->templating->view);
+        $this->assertSame('@Core23Piwik/Block/block_piwik_statistic.html.twig', $this->templating->view);
 
         $this->assertSame($blockContext, $this->templating->parameters['context']);
         $this->assertInternalType('array', $this->templating->parameters['settings']);
@@ -134,7 +134,7 @@ class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
             'token'    => null,
             'period'   => 'day',
             'date'     => 'last30',
-            'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
+            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ], $blockContext);
     }
 }

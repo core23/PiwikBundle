@@ -135,7 +135,7 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
             'token'    => null,
             'period'   => 'day',
             'date'     => 'last30',
-            'template' => 'Core23PiwikBundle:Block:block_piwik_statistic.html.twig',
+            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ]);
 
         $resolver->setRequired(['site', 'host', 'token']);

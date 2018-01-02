@@ -79,7 +79,7 @@ final class PiwikTrackerBlockService extends AbstractAdminBlockService
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
-            'template'    => 'Core23PiwikBundle:Block:block_piwik_tracker.html.twig',
+            'template'    => '@Core23Piwik/Block/block_piwik_tracker.html.twig',
         ]);
 
         $resolver->setRequired(['site', 'host']);
