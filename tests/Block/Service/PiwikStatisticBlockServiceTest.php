@@ -23,14 +23,8 @@ use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
 class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|LoggerInterface
-     */
     private $logger;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientFactoryInterface
-     */
     private $factory;
 
     protected function setUp(): void
