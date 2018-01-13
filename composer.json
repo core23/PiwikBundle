@@ -1,10 +1,11 @@
 {
   "name": "core23/piwik-bundle",
   "type": "symfony-bundle",
-  "description": "This bundle provides a block service for using Piwik inside the sonata-project.",
+  "description": "This bundle provides a block service for using Matomo/Piwik inside the sonata-project.",
   "keywords": [
     "symfony",
     "piwik",
+    "matomo",
     "statistic",
     "sonata",
     "block",

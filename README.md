@@ -12,7 +12,7 @@ What is PiwikBundle?
 [![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/core23)
 [![Donate to this project using PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/gripp)
 
-This bundle provides a wrapper for using the [piwik] statistic inside the symfony sonata-project.
+This bundle provides a wrapper for using the [matomo] (Piwik) statistic inside the symfony sonata-project.
 
 ### Installation
 
@@ -67,4 +67,4 @@ Define a [HTTPlug] client in your configuration.
 This bundle is available under the [MIT license](LICENSE.md).
 
 [HTTPlug]: http://docs.php-http.org/en/latest/index.html
-[piwik]: https://piwik.org
+[matomo]: https://matomo.org
