@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="core23.piwik.block.statistic" class="Core23\PiwikBundle\Block\Service\PiwikStatisticBlockService">
+    <service id="core23_piwik.block.statistic" class="Core23\PiwikBundle\Block\Service\PiwikStatisticBlockService">
       <tag name="sonata.block"/>
-      <argument>core23.piwik.block.statistic</argument>
+      <argument>core23_piwik.block.statistic</argument>
       <argument type="service" id="templating"/>
-      <argument type="service" id="core23.piwik.client.factory"/>
+      <argument type="service" id="core23_piwik.client.factory"/>
       <call method="setLogger">
         <argument type="service" id="logger"/>
       </call>
     </service>
-    <service id="core23.piwik.block.tracker" class="Core23\PiwikBundle\Block\Service\PiwikTrackerBlockService">
+    <service id="core23_piwik.block.tracker" class="Core23\PiwikBundle\Block\Service\PiwikTrackerBlockService">
       <tag name="sonata.block"/>
-      <argument>core23.piwik.block.tracker</argument>
+      <argument>core23_piwik.block.tracker</argument>
       <argument type="service" id="templating"/>
     </service>
   </services>

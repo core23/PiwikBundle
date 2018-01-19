@@ -45,7 +45,7 @@ final class Core23PiwikExtension extends Extension
      */
     private function configureHttpClient(ContainerBuilder $container, array $config): void
     {
-        $container->setAlias('core23.piwik.http.client', $config['http']['client']);
-        $container->setAlias('core23.piwik.http.message_factory', $config['http']['message_factory']);
+        $container->setAlias('core23_piwik.http.client', $config['http']['client']);
+        $container->setAlias('core23_piwik.http.message_factory', $config['http']['message_factory']);
     }
 }

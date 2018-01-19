@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="core23.piwik.client.factory.class">Core23\PiwikBundle\Client\ClientFactory</parameter>
+    <parameter key="core23_piwik.client.factory.class">Core23\PiwikBundle\Client\ClientFactory</parameter>
   </parameters>
   <services>
-    <service id="core23.piwik.client.factory" class="%core23.piwik.client.factory.class%">
-      <argument type="service" id="core23.piwik.http.client"/>
-      <argument type="service" id="core23.piwik.http.message_factory"/>
+    <service id="core23_piwik.client.factory" class="%core23_piwik.client.factory.class%">
+      <argument type="service" id="core23_piwik.http.client"/>
+      <argument type="service" id="core23_piwik.http.message_factory"/>
     </service>
   </services>
 </container>

@@ -57,7 +57,7 @@ Define a [HTTPlug] client in your configuration.
 ```twig
 {# template.twig #}
 
-{{ sonata_block_render({ 'type': 'core23.piwik.block.statistic' }, {
+{{ sonata_block_render({ 'type': 'core23_piwik.block.statistic' }, {
     'host': 'http://piwik.example.com',
     'site': 1,
     'token': 'PIWIK_API_TOKEN'

@@ -21,8 +21,8 @@ class Core23PiwikExtensionTest extends AbstractExtensionTestCase
         $this->setParameter('kernel.bundles', []);
         $this->load();
 
-        $this->assertContainerBuilderHasAlias('core23.piwik.http.client', 'httplug.client.default');
-        $this->assertContainerBuilderHasAlias('core23.piwik.http.message_factory', 'httplug.message_factory.default');
+        $this->assertContainerBuilderHasAlias('core23_piwik.http.client', 'httplug.client.default');
+        $this->assertContainerBuilderHasAlias('core23_piwik.http.message_factory', 'httplug.message_factory.default');
     }
 
     protected function getContainerExtensions(): array
