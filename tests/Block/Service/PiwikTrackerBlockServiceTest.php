@@ -17,7 +17,7 @@ use Sonata\BlockBundle\Model\Block;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
-class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
+final class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
 {
     public function testExecute(): void
     {

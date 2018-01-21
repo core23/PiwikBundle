@@ -14,7 +14,7 @@ namespace Core23\PiwikBundle\Tests\DependencyInjection;
 use Core23\PiwikBundle\DependencyInjection\Core23PiwikExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class Core23PiwikExtensionTest extends AbstractExtensionTestCase
+final class Core23PiwikExtensionTest extends AbstractExtensionTestCase
 {
     public function testLoadDefault(): void
     {

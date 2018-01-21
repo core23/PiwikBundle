@@ -21,7 +21,7 @@ use Sonata\BlockBundle\Model\Block;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Sonata\BlockBundle\Test\AbstractBlockServiceTestCase;
 
-class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
+final class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
 {
     private $logger;
 
