@@ -17,8 +17,8 @@ This bundle provides a wrapper for using the [matomo] (Piwik) statistic inside t
 ### Installation
 
 ```
-php composer.phar require core23/piwik-bundle
-php composer.phar require php-http/guzzle6-adapter # if you want to use Guzzle
+composer require core23/piwik-bundle
+composer require php-http/guzzle6-adapter # if you want to use Guzzle
 ```
 
 ### Enabling the bundle
