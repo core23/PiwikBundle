@@ -75,7 +75,7 @@ final class PiwikTrackerBlockService extends AbstractAdminBlockService
     {
         $resolver->setDefaults([
             'host'        => null,
-            'site'        => false,
+            'site'        => null,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,

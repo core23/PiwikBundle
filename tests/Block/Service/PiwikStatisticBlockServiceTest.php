@@ -52,7 +52,7 @@ final class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $block = new Block();
 
         $blockContext = new BlockContext($block, [
-            'title'    => 'Piwik Statistic',
+            'title'    => null,
             'site'     => 'foo',
             'method'   => 'VisitsSummary.getVisits',
             'host'     => 'localhost',
@@ -92,7 +92,7 @@ final class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $block = new Block();
 
         $blockContext = new BlockContext($block, [
-            'title'    => 'Piwik Statistic',
+            'title'    => null,
             'site'     => 'foo',
             'method'   => 'VisitsSummary.getVisits',
             'host'     => 'localhost',
@@ -121,14 +121,17 @@ final class PiwikStatisticBlockServiceTest extends AbstractBlockServiceTestCase
         $blockContext = $this->getBlockContext($blockService);
 
         $this->assertSettings([
-            'title'    => 'Piwik Statistic',
-            'site'     => false,
-            'method'   => 'VisitsSummary.getVisits',
-            'host'     => null,
-            'token'    => null,
-            'period'   => 'day',
-            'date'     => 'last30',
-            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
+            'title'              => null,
+            'translation_domain' => null,
+            'icon'               => 'fa fa-bar-chart-o',
+            'class'              => null,
+            'site'               => null,
+            'method'             => 'VisitsSummary.getVisits',
+            'host'               => null,
+            'token'              => null,
+            'period'             => 'day',
+            'date'               => 'last30',
+            'template'           => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ], $blockContext);
     }
 }

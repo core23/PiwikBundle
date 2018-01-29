@@ -77,6 +77,18 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
                     'required' => false,
                     'label'    => 'form.label_title',
                 ]],
+                ['translation_domain', TextType::class, [
+                    'label'    => 'form.label_translation_domain',
+                    'required' => false,
+                ]],
+                ['icon', TextType::class, [
+                    'label'    => 'form.label_icon',
+                    'required' => false,
+                ]],
+                ['class', TextType::class, [
+                    'label'    => 'form.label_class',
+                    'required' => false,
+                ]],
                 ['host', TextType::class, [
                     'required' => false,
                     'label'    => 'form.label_host',
@@ -128,14 +140,17 @@ final class PiwikStatisticBlockService extends AbstractAdminBlockService impleme
     public function configureSettings(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'title'    => 'Piwik Statistic',
-            'site'     => false,
-            'method'   => 'VisitsSummary.getVisits',
-            'host'     => null,
-            'token'    => null,
-            'period'   => 'day',
-            'date'     => 'last30',
-            'template' => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
+            'title'              => null,
+            'translation_domain' => null,
+            'icon'               => 'fa fa-bar-chart-o',
+            'class'              => null,
+            'site'               => null,
+            'method'             => 'VisitsSummary.getVisits',
+            'host'               => null,
+            'token'              => null,
+            'period'             => 'day',
+            'date'               => 'last30',
+            'template'           => '@Core23Piwik/Block/block_piwik_statistic.html.twig',
         ]);
 
         $resolver->setRequired(['site', 'host', 'token']);

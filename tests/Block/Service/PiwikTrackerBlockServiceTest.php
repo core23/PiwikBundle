@@ -25,7 +25,7 @@ final class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
 
         $blockContext = new BlockContext($block, [
             'host'        => null,
-            'site'        => false,
+            'site'        => null,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
@@ -49,7 +49,7 @@ final class PiwikTrackerBlockServiceTest extends AbstractBlockServiceTestCase
 
         $this->assertSettings([
             'host'        => null,
-            'site'        => false,
+            'site'        => null,
             'domaintitle' => false,
             'donottrack'  => false,
             'nocookies'   => false,
