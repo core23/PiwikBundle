@@ -33,7 +33,7 @@
         <source>form.choice_3_months</source>
         <target>Drei Monate</target>
       </trans-unit>
-      <trans-unit id="sK.Qjx9" resname="form.choice_6_months">
+      <trans-unit id="form.choice_6_months">
         <source>form.choice_6_months</source>
         <target>Sechs Monate</target>
       </trans-unit>
@@ -69,7 +69,7 @@
         <source>form.choice_year</source>
         <target>Jahr</target>
       </trans-unit>
-      <trans-unit id="1v.0WMp" resname="form.label_date">
+      <trans-unit id="form.label_date">
         <source>form.label_date</source>
         <target>Datum</target>
       </trans-unit>
