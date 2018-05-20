@@ -38,7 +38,7 @@
         "matthiasnoback/symfony-dependency-injection-test": "^2.3",
         "php-http/mock-client": "^0.3",
         "sllh/composer-lint": "^1.0",
-        "sonata-project/admin-bundle": "^3.30",
+        "sonata-project/admin-bundle": "^3.35",
         "symfony/phpunit-bridge": "^4.0"
     },
     "suggest": {
