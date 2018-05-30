@@ -1,5 +1,9 @@
 PiwikBundle
 ===========
+⚠️ This package is not maintained anymore. ⚠️
+
+Use the [MatomoBundle](https://github.com/core23/MatomoBundle) instead.
+
 [![Latest Stable Version](https://poser.pugx.org/core23/piwik-bundle/v/stable)](https://packagist.org/packages/core23/piwik-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/core23/piwik-bundle/v/unstable)](https://packagist.org/packages/core23/piwik-bundle)
 [![License](https://poser.pugx.org/core23/piwik-bundle/license)](https://packagist.org/packages/core23/piwik-bundle)
